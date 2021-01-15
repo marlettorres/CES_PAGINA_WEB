@@ -1,0 +1,30 @@
+{%extends 'index.html'%} {% load static %} {% block contenido %}
+<h2 class="text-center">Área de Planeación y Espacio Educativos</h2>
+
+{% if pagina_cecyte.objetivo %}
+<h3>Objetivo</h3>
+<hr class="red" />
+<p class="text-justify">
+  {{ pagina_cecyte.objetivo|safe }}
+</p>
+{% endif %}
+
+
+{% if elementos %}
+<h3>Temas del área</h3>
+<hr class="red" />
+<div class="row mt-2">
+  {% for elemento in elementos %}
+  <div class="col-md-4">
+    {% include 'boton_modal.html' %}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block title1 %}Área de Planeación | CECyTEs {% endblock %}
+{% block title2 %}Área de Planeación | CECyTEs {% endblock %}
+{% block title3 %}Área de Planeación | CECyTEs {% endblock %}
+{% block js %}<script src="{% static 'areas/planeacion/planeacion.js' %}"></script>{% endblock %}

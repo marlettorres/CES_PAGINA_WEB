@@ -1,0 +1,23 @@
+{%extends 'index.html'%} {% block contenido %}
+<h2 class="text-center">{{pagina_cecyte.nombre}}</h2>
+
+{% if pagina_cecyte.objetivo %}
+<h3>Objetivo</h3>
+<hr class="red" />
+<p class="text-justify">
+  {{ pagina_cecyte.objetivo|safe }}
+</p>
+{% endif %}
+
+<div class="row mt-2">
+  {% for elemento in elementos %}
+  <div class="col-md-4 ">
+    {% include 'boton_modal.html' %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block title1 %}Área Académica | CECyTEs {% endblock %}
+{% block title2 %}Área Académica | CECyTEs {% endblock %}
+{% block title3 %}Área Académica | CECyTEs {% endblock %}

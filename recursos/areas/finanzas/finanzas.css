@@ -1,0 +1,9 @@
+.carousel-control {
+  width: 5%;
+}
+#carousel-finanzas {
+  padding: 2em 4em 3em 4em;
+  background-image: url("/static/fondo_aguila_rosa.jpg");
+  color: white;
+  font-size: 1.2em;
+}

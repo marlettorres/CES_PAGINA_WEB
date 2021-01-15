@@ -1,0 +1,70 @@
+{%extends 'index.html'%} {% load static %} {% block contenido %}
+<h2 class="text-center">Área de Administración y Finanzas</h2>
+
+<h3>Objetivo</h3>
+<hr class="red" />
+
+<p class="text-justify">
+  Dar seguimiento al cumplimiento de los programas financieros a cargo de los Colegios de Estudios Científicos y
+  Tecnológicos y a los requerimientos administrativos, necesarios para la operación de la Coordinación.
+</p>
+
+<h3>Temas del área</h3>
+<hr class="red" />
+
+<div id="carousel-finanzas" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-finanzas" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-finanzas" data-slide-to="1"></li>
+    <li data-target="#carousel-finanzas" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner text-center">
+    <div class="item active">
+      <strong>Finanzas:</strong> Dar seguimiento, junto con las Unidades Administrativas de la SEMS, a las aportaciones
+      financieras federales otorgadas a los CEyTEs de los diferentes Estados, con la finalidad de mantener la calidad de
+      los mismos.
+    </div>
+    <div class="item">
+      <p>
+        <strong>Administración:</strong> Dar seguimiento, junto con las Unidades Administrativas de la UEMSTIS, al
+        óptimo aprovechamiento de los recursos materiales, para dar cumplimiento a las actividades que realiza la
+        Coordinación.
+      </p>
+    </div>
+    <div class="item">
+      <p>
+        <strong>Materiales:</strong> Gestionar la adquisición o baja de materiales, mobiliario, equipo, y material
+        necesario para el funcionamiento de la Coordinación; así como dar seguimiento al servicio de mantenimiento
+        preventivo y correctivo de los mismos.
+      </p>
+    </div>
+  </div>
+  <a class="left carousel-control" href="#carousel-finanzas" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-finanzas" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Siguiente</span>
+  </a>
+</div>
+
+<h3>Normatividad</h3>
+<hr class="red" />
+
+<p class="text-justify">
+  Ley Federal de Presupuesto y Responsabilidad Hacendaria <br />
+  Ley de Adquisiciones, Arrendamiento y Servicios del Sector Público <br />
+  Clasificador por Objeto del Gasto para el Ejercicio Fiscal 2019 <br />
+  Reglamento Interior de la Secretaría de Educación Pública <br />
+  Manual de Organización de la Unidad de Educación Media Superior, Tecnológica, Industrial y de Servicios <br />
+</p>
+
+{% endblock %}
+
+{% block title1 %}Área de Administración y Finanzas | CECyTEs {% endblock %}
+{% block title2 %}Área de Administración y Finanzas | CECyTEs {% endblock %}
+{% block title3 %}Área de Administración y Finanzas | CECyTEs {% endblock %}
+{% block css %}
+<link href="{% static 'areas/finanzas/finanzas.css' %}" rel="stylesheet" />
+{% endblock %}

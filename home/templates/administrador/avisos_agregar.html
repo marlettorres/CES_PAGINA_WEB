@@ -1,0 +1,82 @@
+{%extends 'index.html'%}{% load static %}{% block contenido %}
+
+<ol class="breadcrumb">
+  <li><a href="/administrador">Administrador</a></li>
+  <li><a href="/administrador/avisos">Avisos</a></li>
+</ol>
+
+<h2>Agregar aviso</h2>
+<hr class="red">
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+
+  <div class="form-group">
+
+    <label class="control-label">Sección del anuncio:</label>
+    <select name="pagina_cecyte_id" class="form-control">
+      <option value="0">Selecciona una opción</option>
+
+      {% for pagina in paginas_cecyte %}
+      <option value="{{ pagina.id }}">
+        {{ pagina.nombre }}
+      </option>
+      {% endfor %}
+
+    </select>
+  </div>
+  <div class="form-group">
+    <label class="control-label">Titulo:</label>
+    <input class="form-control" name="nombre" placeholder="Titulo del anuncio" type="text" required>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Imagen cuadro</label>
+    <input type="file" name="archivo_vista">
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Tipo de anuncio</label>
+    <div class="radio">
+      <label>
+        <input type="radio" name="tipo_bloque" value="1" required>Texto
+      </label>
+      <label>
+        <input type="radio" name="tipo_bloque" value="2" required>PDF
+      </label>
+      <label>
+        <input type="radio" name="tipo_bloque" value="3" required>Imagen
+      </label>
+    </div>
+  </div>
+
+
+  <div class="form-group" id="bloque-texto" style="display: none;">
+    <label class="control-label">Texto</label>
+    <textarea name="texto" rows="10" class="form-control"></textarea>
+  </div>
+  <div class="form-group" id="bloque-imagen" style="display: none;">
+    <label class="control-label">Imagen</label>
+    <input type="file" name="imagen">
+  </div>
+  <div class="form-group" id="bloque-pdf" style="display: none;">
+    <label class="control-label">PDF</label>
+    <input type="file" name="pdf">
+  </div>
+
+  <div class="alert alert-danger" id="div-error" {% if error %}{%else%} style="display: none;" {% endif %}>
+    <strong>Alerta: </strong> <span id="span-error">{{error}}</span>
+  </div>
+  <input type="submit" value="Save" class="btn btn-primary" />
+</form>
+{% endblock contenido %}
+
+
+{% block title1 %}Administrador | CECyTEs {% endblock %}
+{% block title2 %}Administrador | CECyTEs {% endblock %}
+{% block title3 %}Administrador | CECyTEs {% endblock %}
+
+
+
+{% block css %}{% endblock css %}
+{% block js %}<script src="{% static 'administrador/paginas.js' %}"></script>{% endblock js %}

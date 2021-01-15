@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-parent="#panel-areas-educativas" data-toggle="collapse"
+        href="#area-{{ area_educativa.id }}">{{ area_educativa.nombre }}</a>
+    </h4>
+  </div>
+
+  <div id="area-{{ area_educativa.id }}" class="panel-collapse collapse">
+    <div class="panel-body">
+      <div class="panel-group" id="panel-{{area_educativa.id}}">
+        {% for carrera in area_educativa.get_carreras %}
+        {% include 'ofertaeducativa/ofertaeducativa_carrera.html' %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

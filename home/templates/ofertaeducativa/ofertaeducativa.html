@@ -1,0 +1,12 @@
+{%extends 'index.html'%}{% block contenido %}
+
+<h2 class="text-center">Oferta educativa de los CECyTEs</h2>
+<hr class="red">
+<div class="panel-group" id="panel-areas-educativas">
+  {% for area_educativa in areas_educativas %} {% include 'ofertaeducativa/ofertaeducativa_area.html' %} {% endfor %}
+</div>
+{% endblock %}
+
+{% block title1 %}Oferta Educativa | CECyTEs{% endblock %}
+{% block title2 %}Oferta Educativa | CECyTEs{% endblock %}
+{% block title3 %}Oferta Educativa | CECyTEs{% endblock %}

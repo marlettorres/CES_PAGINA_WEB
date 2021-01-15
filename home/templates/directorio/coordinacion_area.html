@@ -1,0 +1,31 @@
+{% load static %}
+
+<div class="panel-group">
+  {% for persona in area.get_personas %}
+  <div class="panel panel-default" style="margin-top: 1em">
+    <div class="panel-heading"><h4>{{persona.nombre}}</h4></div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-9">
+          {% if persona.cargo %}
+          <p><strong>Cargo: </strong> {{ persona.cargo }}</p>
+          {% endif %}
+          {% if persona.extension %}
+          <p><strong>Exensión: </strong> {{ persona.extension }}</p>
+          {% endif %}
+          {% if persona.correo %}
+          <p><strong>Correo electrónico: </strong> {{ persona.correo }}</p>
+          {% endif %}
+        </div>
+        <div class="col-md-3">
+          {% if persona.imagen %}
+          <img src="{% static 'directorio/'|add:persona.imagen %}" class="img-responsive img-personal" />
+          {% else %}
+          <img src="{% static 'directorio/no_foto.png' %}" class="img-responsive img-personal" />
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>

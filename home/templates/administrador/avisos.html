@@ -1,0 +1,117 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<h2>Búsqueda de anuncios</h2>
+<hr class="red">
+
+<form method="GET">
+  <div class="row">
+    <div class="col-md-4 form-group">
+      <label class="control-label">Sección del anuncio:</label>
+      <select name="seccion_id" class="form-control" required>
+        <option value="">Selecciona una opción</option>
+        {% for seccion in secciones %}
+        <option {% if form.seccion_id == seccion.id %}selected="selected" {% endif %} value="{{ seccion.id }}">
+          {{ seccion.nombre }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-4 form-group">
+      <label class="control-label">Estatus:</label>
+      <select name="estatus" class="form-control">
+        <option value="">Todos</option>
+        <option {% if form.estatus == "1" %}selected {% endif %} value="1">Activo</option>
+        <option {% if form.estatus == "0" %}selected {% endif %} value="0">Inactivo</option>
+      </select>
+    </div>
+    <div class="col-md-4  ">
+      <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+  </div>
+</form>
+
+<div class="text-center">
+  <a href="/administrador/avisos/agregar" class="btn btn-success">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    Agregar aviso
+  </a>
+</div>
+
+
+{% if avisos %}
+<div class="table-responsive mt-2">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td class="text-center">Id</td>
+        <td class="text-center">Titulo</td>
+        <td class="text-center">Imagen vista</td>
+        <td class="text-center">Texto</td>
+        <td class="text-center">Pdf</td>
+        <td class="text-center">Imagen</td>
+        <td class="text-center">Estatus</td>
+        <td class="text-center">Opciones</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for aviso in avisos %}
+      <tr>
+        <td class="text-center">{{ aviso.id }}</td>
+        <td class="text-center">{{ aviso.nombre }}</td>
+        <td class="text-center">
+          {% if aviso.archivo_vista %}
+          <button class="btn btn-link" data-imagen="{% static ruta|add:aviso.archivo_vista %}"
+            onclick="showModalImagen(this.dataset.imagen)">
+            Ver
+          </button>
+          {% endif %}
+        </td>
+        <td class="text-center">
+          {% if aviso.texto %}
+          <button class="btn btn-link" data-texto="{{ aviso.texto }}" onclick="showModalTexto(this.dataset.texto)">
+            Ver
+          </button>
+          {% endif %}
+        </td>
+        <td class="text-center">
+          {% if aviso.pdf %}
+          <button class="btn btn-link" data-pdf="{% static ruta|add:aviso.pdf %}"
+            onclick="showPdfModal(this.dataset.pdf)">
+            Ver
+          </button>
+          {% endif %}
+        </td>
+        <td class="text-center">
+          {% if aviso.imagen %}
+          <button class="btn btn-link" data-imagen="{% static ruta|add:aviso.imagen %}"
+            onclick="showModalImagen(this.dataset.imagen)">
+            Ver
+          </button>
+          {% endif %}
+        </td>
+        <td class="text-center">
+          {% if aviso.estatus %}Activo{% else %}Inactivo{% endif %}
+        </td>
+        <td class="text-center">
+          <a href="/administrador/paginas/editar/{{aviso.id}}" class="btn btn-link">Editar</a>
+        </td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+
+  </table>
+</div>
+{% else %}
+<div class="alert alert-warning mt-2"><strong>No se han encontrado resultados</strong></div>
+{% endif %}
+
+{% endblock contenido %}
+
+
+{% block title1 %}Editar Secciones | CECyTEs{% endblock title1 %}
+{% block title2 %}Editar Secciones | CECyTEs{% endblock title2 %}
+{% block title3 %}Editar Secciones | CECyTEs{% endblock title3 %}

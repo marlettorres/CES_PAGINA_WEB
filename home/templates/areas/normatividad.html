@@ -1,0 +1,46 @@
+{%extends 'index.html'%} {% load static %} {% block contenido %}
+<h2 class="text-center">Acuerdos Secretariales</h2>
+<hr class="red" />
+
+<div class="row mt-2">
+  <div class="col-md-3">
+    <button class="btn btn-link" data-ruta="{% static 'areas/normatividad/acuerdo_345.pdf' %}"
+      onclick="loadPdf(this.dataset.ruta)">Acuerdo 345</button><br />
+    <button class="btn btn-link" data-ruta="{% static 'areas/normatividad/acuerdo_447.pdf' %}"
+      onclick="loadPdf(this.dataset.ruta)">Acuerdo 447</button><br />
+    <button class="btn btn-link" data-ruta="{% static 'areas/normatividad/acuerdo_449.pdf' %}"
+      onclick="loadPdf(this.dataset.ruta)">Acuerdo 449</button><br />
+    <button class="btn btn-link" data-ruta="{% static 'areas/normatividad/acuerdo_450.pdf' %}"
+      onclick="loadPdf(this.dataset.ruta)">Acuerdo 450</button><br />
+    <button class="btn btn-link" data-ruta="{% static 'areas/normatividad/acuerdo_480.pdf' %}"
+      onclick="loadPdf(this.dataset.ruta)">Acuerdo 480</button><br />
+    <button class="btn btn-link" data-ruta="{% static 'areas/normatividad/acuerdo_484.pdf' %}"
+      onclick="loadPdf(this.dataset.ruta)">Acuerdo 484</button><br />
+    <button class="btn btn-link" data-ruta="{% static 'areas/normatividad/acuerdo_486.pdf' %}"
+      onclick="loadPdf(this.dataset.ruta)">Acuerdo 486</button><br />
+    <button class="btn btn-link" data-ruta="{% static 'areas/normatividad/acuerdo_488.pdf' %}"
+      onclick="loadPdf(this.dataset.ruta)">Acuerdo 488</button><br />
+    <button class="btn btn-link" data-ruta="{% static 'areas/normatividad/acuerdo_653.pdf' %}"
+      onclick="loadPdf(this.dataset.ruta)">Acuerdo 653</button><br />
+    <button class="btn btn-link" data-ruta="{% static 'areas/normatividad/acuerdo_656.pdf' %}"
+      onclick="loadPdf(this.dataset.ruta)">Acuerdo 656</button><br />
+    <button class="btn btn-link" data-ruta="{% static 'areas/normatividad/acuerdo_657.pdf' %}"
+      onclick="loadPdf(this.dataset.ruta)">Acuerdo 657</button><br />
+
+    <button class="btn btn-link" data-ruta="{% static 'areas/normatividad/acuerdo_657_aclaracion.pdf' %}"
+      onclick="loadPdf(this.dataset.ruta)">
+      Acuerdo657_Aclaracion DOF_16-01-2013
+    </button>
+    <br />
+  </div>
+  <div class="col-md-9">
+    <div id="acuerdo-div"></div>
+  </div>
+</div>
+<input type="hidden" value="{% static 'areas/normatividad/' %}" id="ruta-normatividad" />
+{% endblock %}
+
+{% block title1 %}Acuerdos Secretariales | CECyTEs {% endblock %}
+{% block title2 %}Acuerdos Secretariales | CECyTEs {% endblock %}
+{% block title3 %}Acuerdos Secretariales | CECyTEs {% endblock %}
+{% block js %}<script src="{% static 'areas/normatividad/normatividad.js' %}"></script>{% endblock %}

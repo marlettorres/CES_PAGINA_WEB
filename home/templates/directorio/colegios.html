@@ -1,0 +1,44 @@
+{%extends 'index.html'%} {% load static %} {% block contenido %}
+
+<h2 class="text-center">Directorio de los Colegios Cientificos y Tecnologicos en los Estados</h2>
+<hr class="red" />
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr class="cabecera-tabla">
+        <th class="text-center">Colegios</th>
+        <th class="text-center">Director General</th>
+        <th class="text-center">Dirección</th>
+        <th class="text-center">Teléfono</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for colegio in colegios %}
+      <tr>
+        <td class="text-center">{{colegio.estado}}</td>
+        <td class="text-center">{{colegio.director_general}}</td>
+        <td class="text-center">
+          {% if colegio.direccion %} {{colegio.direccion}} {% endif %}
+        </td>
+        <td class="text-center">
+          {% if colegio.telefono %} {{colegio.telefono}} {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
+
+{% block title1 %}Directorio de los Colegios | CECyTEs{% endblock %}
+{% block title2 %}Directorio de los Colegios | CECyTEs{% endblock %}
+{% block title3 %}Directorio de los Colegios | CECyTEs{% endblock %}
+
+{% block css %}
+<link href="{% static 'directorio/directorio_colegios.css' %}" rel="stylesheet" />
+{% endblock %}
+{% block keywords %}
+CECYTEO, CECYTEM, CECYTEY, CECYTES, CECYTET, CECYTEV
+{% endblock %}

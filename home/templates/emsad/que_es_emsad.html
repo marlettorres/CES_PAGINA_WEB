@@ -1,0 +1,27 @@
+{% load static %}
+<p class="text-justify">
+  Educación Media Superior a Distancia (EMSaD) es un servicio que inició en 1997. Fue diseñado para operar con una
+  estructura de personal y requerimientos de infraestructura menores que los de un plantel. Por sus características, es
+  una opción para ampliar la cobertura, especificamente en las localidades rurales que tienen pocos habitantes, que no
+  tienen matricula suficiente para sostener un plantel. En los últimos años los Centros EMSaD han tenido un importante
+  crecimiento, porque los gobiernos estatales los solicitan para cumplir las demandas de la población rural.
+</p>
+
+<div class="row">
+  <div class="col-sm-6 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1">
+    <img
+      data-ruta="{% static 'emsad/que_es_1.jpg' %}"
+      onclick="showModalImagen(this.dataset.ruta)"
+      src="{% static 'emsad/que_es_1.jpg' %}"
+      class="img-responsive btn-modal"
+    />
+  </div>
+  <div class="col-sm-6 col-md-5 col-lg-5">
+    <img
+      data-ruta="{% static 'emsad/que_es_1.jpg' %}"
+      onclick="showModalImagen(this.dataset.ruta)"
+      src="{% static 'emsad/que_es_2.jpg' %}"
+      class="img-responsive btn-modal"
+    />
+  </div>
+</div>

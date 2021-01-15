@@ -1,0 +1,18 @@
+{%extends 'index.html'%} {% load static %} {% block contenido %}
+<h2 class="text-center">EMSaD</h2>
+<hr class="red" />
+
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#que-es">¿Qué es EMSaD?</a></li>
+  <li><a data-toggle="tab" href="#ubica-emsad">Ubica tu EMSaD</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="que-es">{% include 'emsad/que_es_emsad.html' %}</div>
+  <div class="tab-pane" id="ubica-emsad">{% include 'emsad/ubica_emsad.html' %}</div>
+</div>
+
+{% endblock %}
+
+{% block title1 %}EMSaD | CECyTEs {% endblock %}
+{% block title2 %}EMSaD | CECyTEs {% endblock %}
+{% block title3 %}EMSaD | CECyTEs {% endblock %}

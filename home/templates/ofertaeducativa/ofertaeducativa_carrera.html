@@ -1,0 +1,28 @@
+{% load static %} {% if carrera.archivo_carrera %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-parent="#panel-{{area_educativa.id}}" data-toggle="collapse"
+        href="#carrera-{{ carrera.id }}">{{ carrera.nombre }}</a>
+    </h4>
+  </div>
+  <div id="carrera-{{ carrera.id }}" class="panel-collapse collapse">
+    <div class="panel-body">
+      <p>
+        <button class="btn btn-link" data-ruta="{% static 'ofertaeducativa/carrera/'|add:carrera.archivo_carrera %}"
+          onclick="showPdfModal(this.dataset.ruta)">
+          Abrir descripción de la carrera
+        </button>
+      </p>
+      {% endif %}{% if carrera.archivo_programa %}
+      <p>
+        <button class="btn btn-link"
+          data-ruta="{% static 'ofertaeducativa/programa de estudios/'|add:carrera.archivo_programa %}"
+          onclick="showPdfModal(this.dataset.ruta)">
+          Abrir programa de estudios
+        </button>
+      </p>
+      {% endif %}
+    </div>
+  </div>
+</div>

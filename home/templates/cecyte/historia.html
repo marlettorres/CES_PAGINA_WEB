@@ -1,0 +1,31 @@
+{% load static %}
+<h3>Historia de los CECyTEs</h3>
+<hr class="red" />
+<p class="text-justify">
+  A partir de que la Secretaria de Educación Pública, puso a disposición de los Gobiernos Estatales el nuevo modelo
+  descentralizado de educación media superior tecnológica denominado "Colegios de Estudios Científicos Tecnológicos" en
+  1991 la fecha se cuenta con 29 Colegios.
+</p>
+
+<div id="carousel-historia" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-historia" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-historia" data-slide-to="1"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="{% static 'cecyte/historia/historia_1.jpg' %}" alt="Historia de los CECyTES 1" />
+    </div>
+    <div class="item">
+      <img src="{% static 'cecyte/historia/historia_2.jpg' %}" alt="Historia de los CECyTES 2" />
+    </div>
+  </div>
+  <a class="left carousel-control" href="#carousel-historia" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-historia" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Siguiente</span>
+  </a>
+</div>

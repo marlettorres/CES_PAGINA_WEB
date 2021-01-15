@@ -1,0 +1,19 @@
+{%extends 'index.html'%} {% block contenido %}
+<h2 class="text-center">Colegios de Estudios Científicos y Tecnológicos en los Estados</h2>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#historia">Historia</a></li>
+  <li><a data-toggle="tab" href="#encuentra-cecyte">Encuentra tu CECyTE</a></li>
+  <li><a data-toggle="tab" href="#ubica-cecyte">Ubica tu CECyTE</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="historia">{% include 'cecyte/historia.html' %}</div>
+  <div class="tab-pane" id="encuentra-cecyte">{% include 'cecyte/encuentra_cecyte.html' %}</div>
+  <div class="tab-pane" id="ubica-cecyte">{% include 'cecyte/ubica_cecyte.html' %}</div>
+</div>
+
+{% endblock %}
+
+{% block title1 %}CECyTEs | CECyTEs {% endblock %}
+{% block title2 %}CECyTEs | CECyTEs {% endblock %}
+{% block title3 %}CECyTEs | CECyTEs {% endblock %}

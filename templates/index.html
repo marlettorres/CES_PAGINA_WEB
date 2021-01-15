@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Duplika">
+  <meta name="app_version" content="1.0">
+  <meta name="build_version" content="1">
+  <meta name="siteid" content="mx">
+  <meta name="countryid" content="MX">
+  <meta name="country" content="Mexico">
+  <meta name="Language" content="es">
+  <meta name="site" content="Colegios de Estudios Científicos y Tecnológicos en los Estados">
+  <meta name="keywords"
+    content="CECyTEs, EMSaD, cecyte, emsad, Colegios de Estudios Científicos y Tecnológicos en los Estados, Coordinación de ODES de CECyTE, {% block keywords %}{% endblock %}">
+  <meta name="description" content="Coordinación de ODES de CECyTE">
+  <meta name="title" content="{% block title2 %}Coordinación de ODES de CECyTE{% endblock %}">
+  <meta property="og:title" content="{% block title3 %}Coordinación de ODES de CECyTE{% endblock %}">
+  <link rel="shortcut icon" href="{% static 'cecyte.png' %}">
+  <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet" />
+  <link href="{% static 'home.css' %}" rel="stylesheet" />
+  <link href="{% static 'navbar.css' %}" rel="stylesheet" />
+  {% block css %} {% endblock %}
+  <title>{% block title1 %}Coordinación de ODES de CECyTE{% endblock %}</title>
+</head>
+
+<body>
+  {% include "navbar.html" %}
+  <div class="container">
+    <div style="margin-top: 5em; margin-bottom: 5em">
+      {% block contenido %}{% endblock contenido %}
+    </div>
+  </div>
+  {% include "modal.html" %}
+  <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+  <script src="{% static 'home.js' %}"></script>
+  {% block js %}{% endblock js %}
+</body>
+
+</html>

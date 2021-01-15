@@ -1,0 +1,41 @@
+{%extends 'index.html'%}{% load static %}{% block contenido %}
+
+<h2 class="text-center">Coordidación de ODES de CECyTE</h2>
+
+<div class="row">
+  <div class="col-md-5">
+    <h3>Misión</h3>
+    <hr class="red" />
+    <p class="text-justify">
+      {{mision}}
+    </p>
+  </div>
+  <div class="col-md-5 col-md-offset-2">
+    <h3>Visión</h3>
+    <hr class="red" />
+    <p class="text-justify">
+      {{vision}}
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <video id="my-video" class="video-js" controls data-setup="{}">
+      <source src="{% static 'misionyvision/misionyvision.mp4' %}" type="video/mp4" />
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
+</div>
+{% endblock %}
+
+{% block title1 %}Mision y Visión | CECyTEs{% endblock %}
+{% block title2 %}Mision y Visión | CECyTEs{% endblock %}
+{% block title3 %}Mision y Visión | CECyTEs{% endblock %}
+{% block js %}<script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>{% endblock %}
+{% block css %}
+<link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+{% endblock %}

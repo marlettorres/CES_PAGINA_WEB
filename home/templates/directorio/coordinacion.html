@@ -1,0 +1,39 @@
+{%extends 'index.html'%}{% load static %}{% block contenido %}
+
+<h3 class="text-center">Directorio de la Coordinacion de ODES de los CECyTEs</h3>
+<p class="text-center">
+  Viaducto Río de la Piedad 551, Jardín Balbuena, Venustiano Carranza, 15900 Ciudad de México, CDMX
+</p>
+<p class="text-center"><a href="#mapa-ubicacion">Ver ubicación</a></p>
+<hr class="red" />
+
+<ul class="nav nav-pills">
+  {% for area in areas_coordinacion %}
+  <li class="{% if area.id == 1 %}active{% endif %}">
+    <a data-toggle="pill" class="pill-directorio" href="#area-{{area.id}}"> {{ area.nombre }} </a>
+  </li>
+  {% endfor %}
+</ul>
+
+<div class="tab-content">
+  {% for area in areas_coordinacion %}
+  <div id="area-{{area.id}}" class="tab-pane fade in {% if area.id == 1 %}active{% endif %}">
+    {% include 'directorio/coordinacion_area.html' %}
+  </div>
+  {% endfor %}
+</div>
+
+<div id="mapa-ubicacion" class="text-center">
+  <embed
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.1202287582614!2d-99.11195748556476!3d19.40721058689876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fe996ccb0fdd%3A0xf6946e06d5a53d8b!2sViad.%20R%C3%ADo%20de%20la%20Piedad%20551%2C%20Magdalena%20Mixihuca%2C%20Iztacalco%2C%2015860%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1581456833445!5m2!1ses-419!2smx"
+    width="600" height="450" frameborder="0" />
+</div>
+{% endblock %}
+
+{% block title1 %}Directorio de la Coordinación | CECyTEs {% endblock %}
+{% block title2 %}Directorio de la Coordinación | CECyTEs {% endblock %}
+{% block title3 %}Directorio de la Coordinación | CECyTEs {% endblock %}
+
+{% block css %}
+<link href="{% static 'directorio/directorio_coordinacion.css' %}" rel="stylesheet" />
+{% endblock %}
