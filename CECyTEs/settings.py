@@ -6,7 +6,7 @@ SECRET_KEY = 'p07wuog&b7stqf-*jta6_%5el8ijj7^iq96jugxf!kjpsl*)q$'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ "cecyte.edu.mx" ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -26,6 +26,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'CECyTEs.urls'
@@ -54,7 +55,7 @@ DATABASES = {
         'NAME': 'cecyte',
         'USER': 'root',
         'PASSWORD': 'c3c1t3.2o19',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
