@@ -23,6 +23,11 @@ def vinculacion_view(request):
     return render(request, "areas/vinculacion.html", context)
 
 
+def informatica_view(request):
+    context = get_contenido_area(2)
+    return render(request, "areas/informatica.html", context)
+
+
 def normatividad_view(request):
     context = {}
     return render(request, "areas/normatividad.html", context)
