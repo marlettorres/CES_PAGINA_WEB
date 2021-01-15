@@ -3,9 +3,41 @@
 
 
 {% block contenido %}
-<p>BANNER</p>
-<p>AVISOS</p>
-<p>NOTICIAS</p>
+<div id="carousel-banners" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+
+    {% for elemento in elementos_banners %}
+    <li data-target="#carousel-banners" data-slide-to="{{elemento.id}}"></li>
+    {% endfor %}
+  </ol>
+  <div class="carousel-inner text-center">
+
+    {% for elemento in elementos_banners %}
+    <img src="{% static ruta_banners|add:elemento.archivo_vista %}" alt="{{elemento.nombre}}" class="img-responsive" />
+
+    {% endfor %}
+  </div>
+  <a class="left carousel-control" href="#carousel-banners" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-banners" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Siguiente</span>
+  </a>
+</div>
+
+<h3>Anuncios</h3>
+<hr class="red">
+
+<div class="row">
+  {% for elemento in elementos_anuncios %}
+  <div class="col-md-4">
+    {% include 'boton_modal.html' with ruta=ruta_anuncios %}
+  </div>
+  {% endfor %}
+</div>
+
 {% endblock contenido %}
 
 {% block js %}<script src="{% static 'inicio.js' %}"></script>{% endblock js %}

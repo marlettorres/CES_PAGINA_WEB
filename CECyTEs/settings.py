@@ -6,7 +6,7 @@ SECRET_KEY = 'p07wuog&b7stqf-*jta6_%5el8ijj7^iq96jugxf!kjpsl*)q$'
 
 DEBUG = True
 
-ALLOWED_HOSTS = [ "cecyte.edu.mx" ]
+ALLOWED_HOSTS = [ "cecyte.edu.mx", "localhost" ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
