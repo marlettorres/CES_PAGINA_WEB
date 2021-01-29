@@ -44,10 +44,10 @@ def guardar_avisos_bd(form, request, id):
         contenido = ContenidoPagina.objects.get(id=id)
     else:
         contenido = ContenidoPagina()
-
-    contenido["nombre"] = form.cleaned_data["nombre"]
-    contenido["archivo_vista"] = request.FILES["archivo_vista"].name
-    contenido["pagina_cecyte_id"] = form.cleaned_data["pagina_cecyte_id"]
+    print("form.cleaned_data['nombre']", form.cleaned_data["nombre"])
+    contenido.nombre = form.cleaned_data["nombre"]
+    contenido.archivo_vista = request.FILES["archivo_vista"].name
+    contenido.pagina_cecyte_id = form.cleaned_data["pagina_cecyte_id"]
 
     if tipo_bloque == 1:  # texto
         contenido.texto = form.cleaned_data["texto"]
