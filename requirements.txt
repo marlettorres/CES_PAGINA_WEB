@@ -2,3 +2,4 @@ Django
 django-mysql
 mysqlclient
 whitenoise
+python-dotenv

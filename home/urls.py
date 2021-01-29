@@ -11,6 +11,7 @@ from home.urls_.ofertaeducativa import urlpatterns as ofertaeducativa_urls
 from home.urls_.inicio import urlpatterns as inicio_urls
 from home.urls_.administrador import urlpatterns as administrador_urls
 
+
 appname = "home"
 
 urlpatterns = []
