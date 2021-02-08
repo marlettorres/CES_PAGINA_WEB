@@ -1,0 +1,29 @@
+<div>
+    <select name="cboplantel" id="cboplantel" onchange="mostrarInformacion(this.value);" class="form-control">
+        <option value="-1">-- Selecciona una opcion --</option>
+        {% for plantel in planteles %}
+
+        <option value="{{ plantel.id }}">{{ plantel.nombre }}</option>
+
+        {% endfor %}
+    </select>
+</div>
+<div id="div-informacion" style="
+margin-left: -400px;">
+    {% include 'cecyte/mostrar_informacion.html' %}
+</div>
+{%block js%}
+<script>
+    async function mostrarInformacion(cboplantel) {
+        divinformacion=document.getElementById("div-informacion");
+        divinformacion.innerHTML = "";
+        fetch("informacion/planteles"+cboplantel)
+        .then(res => {
+        return res.text();
+        })
+        .then(data => {
+        divinformacion.innerHTML =data
+        });
+            }
+</script>
+{% endblock %}
