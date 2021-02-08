@@ -1,0 +1,76 @@
+{% if estadistica %}
+<div class="form-group">
+  <label>1. Nombre(s)</label>
+  <input type="text" class="form-control" value="{{estadistica.dg_nombre}}" disabled>
+</div>
+<div class="form-group">
+  <label>2. Apellido Paterno"</label>
+  <input type="text" class="form-control" value="{{estadistica.dg_ap_paterno}}" disabled>
+</div>
+<div class="form-group">
+  <label>3. Apellido materno</label>
+  <input type="email" class="form-control" value="{{estadistica.dg_ap_materno}}" disabled>
+</div>
+<div class="form-group">
+  <label>4. Perfil academico</label>
+  <input type="text" class="form-control" value="{{estadistica.dg_perfil_academico}}" disabled>
+</div>
+<div class="form-group">
+  <label>5. Número cédula profesional</label>
+  <input type="text" class="form-control" value="{{estadistica.dg_cedula}}" disabled>
+</div>
+<div class="form-group">
+  <label>6. Fecha de nombramiento</label>
+  <input type="text" class="form-control" value="{{estadistica.dg_fecha_nombramiento}}" disabled>
+</div>
+<div class="form-group">
+  <label>7. Cuenta con plaza docente?</label>
+  <input type="text" class="form-control" value="{{estadistica.dg_plaza}}" disabled>
+</div>
+<div class="form-group">
+  <label>8. Antiguedad de la plazada</label>
+  <input type="text" class="form-control" value="{{estadistica.dg_plaza_antiguedad}}" disabled>
+</div>
+<div class="form-group">
+  <label>9. Tiene horas frente a grupo?</label>
+  <input type="text" class="form-control" value="{{estadistica.dg_horas}}" disabled>
+</div>
+<div class="form-group">
+  <label>10. Total de computadoras para uso de docente con acceso a internet</label>
+  <input type="text" class="form-control" value="{{estadistica.equipo_computo_docente_con}}" disabled>
+</div>
+<div class="form-group">
+  <label>11. Total de computadoras para uso de docente sin acceso a internet</label>
+  <input type="text" class="form-control" value="{{estadistica.equipo_computo_docente_sin}}" disabled>
+</div>
+<div class="form-group">
+  <label>12. Total de computadoras para uso de administrativo con acceso a internet</label>
+  <input type="text" class="form-control" value="{{estadistica.equipo_computo_administrativo_con}}" disabled>
+</div>
+<div class="form-group">
+  <label>13. Total de computadoras para uso de administrativo sin acceso a internet</label>
+  <input type="text" class="form-control" value="{{estadistica.equipo_computo_administrativo_sin}}" disabled>
+</div>
+<div class="form-group">
+  <label>14. Total de computadoras para uso de alumnos con acceso a internet</label>
+  <input type="text" class="form-control" value="{{estadistica.equipo_computo_alumnos_con}}" disabled>
+</div>
+<div class="form-group">
+  <label>15. Total de computadoras para uso de alumnos sin acceso a internet</label>
+  <input type="text" class="form-control" value="{{estadistica.equipo_computo_alumnos_sin}}" disabled>
+</div>
+<div class="form-group">
+  <label>16. Total de computadoras para uso de compartido con acceso a internet</label>
+  <input type="text" class="form-control" value="{{estadistica.equipo_computo_compartido_con}}" disabled>
+</div>
+<div class="form-group">
+  <label>17. Total de computadoras para uso de compartido sin acceso a internet</label>
+  <input type="text" class="form-control" value="{{estadistica.equipo_computo_compartido_sin}}" disabled>
+</div>
+<div class="form-group">
+  <label>18. Cuál es la velocidad de acceso a Internet?</label>
+  <input type="text" class="form-control" value="{{estadistica.equipo_computo_velocidad}}" disabled>
+</div>
+{% else %}
+<div class="alert alert-warning">No se ha encontrado información de datos estadísticos.</div>
+{% endif %}

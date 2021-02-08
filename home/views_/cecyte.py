@@ -1,49 +1,56 @@
 from django.shortcuts import render
-from home.models import Estado,CatPlanteles,EncuestaPlantel,PlantelInformacion,PlantelInfraestructura,PlantelEstadistica,PlantelEscolaridad,OfertaEducativa,PlantelLegal,PlantelVinculacion
+from home.models import (
+    Estado,
+    CatPlanteles,
+    EncuestaPlantel,
+    PlantelInformacion,
+    PlantelInfraestructura,
+    PlantelEstadistica,
+    PlantelEscolaridad,
+    OfertaEducativa,
+    PlantelLegal,
+    PlantelVinculacion,
+)
 
 
 def cecyte_view(request):
     estados = Estado.objects.filter(estatus=True)
-    planteles =[]
-    context = {"estados": estados, "planteles": planteles}
+    context = {"estados": estados}
     return render(request, "cecyte/cecyte.html", context)
 
-def cecyte_planteles(request, id):    
+
+def cecyte_planteles(request, id):
     planteles = CatPlanteles.objects.filter(estado_id=id)
+    print("planteles", planteles)
     context = {"planteles": planteles}
-    return render(request, "cecyte/detalle_cecyte_plantel.html", context)
+    return render(request, "cecyte/detalle/filtro_plantel.html", context)
 
-def informacion_planteles(request, id):    
+
+def informacion_planteles(request, id):
+    context = {}
     encuesta = EncuestaPlantel.objects.filter(plantel_id=id).first()
-    informacion = {}
+    encuesta_id = 0
     if encuesta is not None:
-        informacion = PlantelInformacion.objects.filter(encuesta_id=encuesta.id).first()
-        if informacion is None:
-            informacion = {}
-            
-        infraestructura = PlantelInfraestructura.objects.filter(encuesta_id=encuesta.id).first()
-        if infraestructura is None:
-            infraestructura = {}
+        encuesta_id = encuesta.id
 
-        estadistica = PlantelEstadistica.objects.filter(encuesta_id=encuesta.id).first()
-        if estadistica is None:
-            estadistica = {}
+    informacion = PlantelInformacion.objects.filter(encuesta_id=encuesta_id).first()
+    infraestructura = PlantelInfraestructura.objects.filter(
+        encuesta_id=encuesta_id
+    ).first()
+    estadistica = PlantelEstadistica.objects.filter(encuesta_id=encuesta_id).first()
+    escolaridad = PlantelEscolaridad.objects.filter(encuesta_id=encuesta_id).first()
+    oferta = OfertaEducativa.objects.filter(encuesta_id=encuesta_id)
+    legal = PlantelLegal.objects.filter(encuesta_id=encuesta_id).first()
+    vinculacion = PlantelVinculacion.objects.filter(encuesta_id=encuesta_id).first()
 
-        escolaridad = PlantelEscolaridad.objects.filter(encuesta_id=encuesta.id).first()
-        if escolaridad is None:
-            escolaridad = {}
-
-        oferta = OfertaEducativa.objects.filter(encuesta_id=encuesta.id).first()
-        if oferta is None:
-            oferta = {}
-
-        legal = PlantelLegal.objects.filter(encuesta_id=encuesta.id).first()
-        if legal is None:
-            legal = {}
-
-        vinculacion = PlantelVinculacion.objects.filter(encuesta_id=encuesta.id).first()
-        if vinculacion is None:
-            vinculacion = {}
-
-    context = {"informacion": informacion, "infraestructura":infraestructura, "estadistica":estadistica, "escolaridad":escolaridad, "oferta":oferta, "legal":legal, "vinculacion":vinculacion}
-    return render(request, "cecyte/mostrar_informacion.html", context)
+    context = {
+        "encuesta": encuesta,
+        "informacion": informacion,
+        "infraestructura": infraestructura,
+        "estadistica": estadistica,
+        "escolaridad": escolaridad,
+        "oferta": oferta,
+        "legal": legal,
+        "vinculacion": vinculacion,
+    }
+    return render(request, "cecyte/detalle/informacion.html", context)

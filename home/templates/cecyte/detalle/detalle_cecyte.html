@@ -1,0 +1,53 @@
+{% load static %}
+{% block contenido %}
+<div class="row">
+  <div class="form-group col-md-4">
+    <label>Entidad</label>
+    <select name="cboentidad" id="cboentidad" onchange="listarPlanteles(this.value);" class="form-control">
+      <option value="-1">-- Selecciona una opcion --</option>
+      {% for estado in estados %}
+      <option value="{{ estado.id }}">{{ estado.nombre }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group col-md-4">
+    <label>Plantel</label>
+    <select onchange="mostrarInformacion(this.value);" class="form-control" id="select-plantel">
+      <option value="-1">-- Selecciona una opcion --</option>
+    </select>
+  </div>
+</div>
+<div id="div-informacion"></div>
+
+{% endblock %}
+{% block js %}
+<script>
+  async function listarPlanteles(id_estado) {
+    console.log('id_estado', id_estado)
+    select_plantel = document.getElementById("select-plantel");
+    select_plantel.innerHTML = "";
+
+    fetch("cecyte/planteles/" + id_estado)
+      .then(res => {
+        return res.text();
+      })
+      .then(data => {
+        select_plantel.innerHTML = data
+      });
+  }
+
+  async function mostrarInformacion(id_plantel) {
+    divinformacion = document.getElementById("div-informacion");
+    divinformacion.innerHTML = "";
+
+    fetch("informacion/planteles/" + id_plantel)
+      .then(res => {
+        return res.text();
+      })
+      .then(data => {
+        divinformacion.innerHTML = data
+      });
+  }
+</script>
+{% endblock %}

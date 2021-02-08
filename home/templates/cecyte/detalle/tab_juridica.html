@@ -1,0 +1,52 @@
+{% if legal %}
+<div class="form-group">
+  <label>¿Cuenta con el documento que ampara escriturado en propiedad?</label>
+  {% if legal.escritura_tiene %}
+  <input type="text" class="form-control" value="Si" disabled>
+  {% else %}
+  <input type="text" class="form-control" value="No" disabled>
+  {% endif %}
+</div>
+<div class="form-group">
+  <label>Fecha del documento que ampara escriturado en propiedad:</label>
+  <input type="text" class="form-control" value="{{legal.escritura_fecha}}" disabled>
+</div>
+<div class="form-group">
+  <label>Número del documento que ampara escriturado en propiedad:</label>
+  <input type="text" class="form-control" value="{{legal.escritura_numero}}" disabled>
+</div>
+<div class="form-group">
+  <label>Volumen del documento que ampara escriturado en propiedad:</label>
+  <input type="text" class="form-control" value="{{legal.escritura_volumen}}" disabled>
+</div>
+<div class="form-group">
+  <label>Cuenta con el documento que ampara comodato</label>
+  <input type="text" class="form-control" value="{{legal.comodato}}" disabled>
+</div>
+<div class="form-group">
+  <label>Documento que ampara el arrendamiento</label>
+  <input type="text" class="form-control" value="{{legal.arrendamiento}}" disabled>
+</div>
+<div class="form-group">
+  <label>Documento que ampara el proceso de escrituración</label>
+  <input type="text" class="form-control" value="{{legal.escrituracion}}" disabled>
+</div>
+<div class="form-group">
+  <label>Documento que ampara el contrato de compra venta</label>
+  <input type="text" class="form-control" value="{{legal.compraventa}}" disabled>
+</div>
+<div class="form-group">
+  <label>Documento que ampara el decreto presidencial</label>
+  <input type="text" class="form-control" value="{{legal.presidencial}}" disabled>
+</div>
+<div class="form-group">
+  <label>Documento que ampara la resolución judicial</label>
+  <input type="text" class="form-control" value="{{legal.judicial}}" disabled>
+</div>
+<div class="form-group">
+  <label>Documento que ampara la prescripción positiva</label>
+  <input type="text" class="form-control" value="{{legal.positiva}}" disabled>
+</div>
+{% else %}
+<div class="alert alert-warning">No se ha encontrado información del área jurídica.</div>
+{% endif %}
