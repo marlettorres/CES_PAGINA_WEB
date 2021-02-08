@@ -1,0 +1,36 @@
+{% if encuesta %}
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"> <a data-toggle="tab" href="#plantel">Datos Plantel</a> </li>
+  <li> <a data-toggle="tab" href="#estadisticos">Datos Estadisticos</a> </li>
+  <li> <a data-toggle="tab" href="#escolaridad">Escolaridad</a> </li>
+  <li> <a data-toggle="tab" href="#oferta-educativa">Oferta educativa</a> </li>
+  <li> <a data-toggle="tab" href="#infraestructura">Datos Infraestructura</a> </li>
+  <li> <a data-toggle="tab" href="#juridica">Área Jurídica</a></li>
+  <li> <a data-toggle="tab" href="#vinculacion">Área Vinculación</a> </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="plantel">
+    {% include 'cecyte/detalle/tab_plantel.html' %}
+  </div>
+  <div class="tab-pane" id="estadisticos">
+    {% include 'cecyte/detalle/tab_estadisticos.html' %}
+  </div>
+  <div class="tab-pane" id="escolaridad">
+    {% include 'cecyte/detalle/tab_escolaridad.html' %}
+  </div>
+  <div class="tab-pane" id="oferta-educativa">
+    {% include 'cecyte/detalle/tab_oferta.html' %}
+  </div>
+  <div class="tab-pane" id="infraestructura">
+    {% include 'cecyte/detalle/tab_infraestructura.html' %}
+  </div>
+  <div class="tab-pane" id="juridica">
+    {% include 'cecyte/detalle/tab_juridica.html' %}
+  </div>
+  <div class="tab-pane" id="vinculacion">
+    {% include 'cecyte/detalle/tab_vinculacion.html' %}
+  </div>
+</div>
+{% else %}
+<div class="alert alert-danger">No se ha encontrado información para este plantel.</div>
+{% endif %}

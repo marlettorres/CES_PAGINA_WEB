@@ -1,0 +1,88 @@
+{% if informacion %}
+<div class="form-group">
+  <label>1. Coordenadas latitud (formato decimal)</label>
+  <input type="text" class="form-control" value="{{ informacion.latitud }}" disabled>
+</div>
+<div class="form-group">
+  <label>2. Coordenadas longitud (formato decimal)</label>
+  <input type="text" class="form-control" value="{{ informacion.longitud }}" disabled>
+</div>
+<div class="form-group">
+  <label>3. Calle</label>
+  <input type="email" class="form-control" value="{{ informacion.calle }}" disabled>
+</div>
+<div class="form-group">
+  <label>4. No. exterior</label>
+  <input type="text" class="form-control" value="{{ informacion.no_exterior }}" disabled>
+</div>
+<div class="form-group">
+  <label>5. No. interior</label>
+  <input type="text" class="form-control" value="{{ informacion.no_interior }}" disabled>
+</div>
+<div class="form-group">
+  <label>6. Colonia</label>
+  <input type="text" class="form-control" value="{{ informacion.colonia }}" disabled>
+</div>
+<div class="form-group">
+  <label>7. Municipio</label>
+  <input type="text" class="form-control" value="{{ informacion.municipio }}" disabled>
+</div>
+<div class="form-group">
+  <label>8. Localidad</label>
+  <input type="text" class="form-control" value="{{ informacion.localidad }}" disabled>
+</div>
+<div class="form-group">
+  <label>9. Entidad Federativa</label>
+  <input type="text" class="form-control" value="{{ informacion.entidad_federativa }}" disabled>
+</div>
+<div class="form-group">
+  <label>10. Codigo Postal</label>
+  <input type="text" class="form-control" value="{{ informacion.codigo_postal }}" disabled>
+</div>
+<div class="form-group">
+  <label>11. Ciudad o población</label>
+  <input type="text" class="form-control" value="{{ informacion.ciudad }}" disabled>
+</div>
+<div class="form-group">
+  <label>12. Telefono</label>
+  <input type="text" class="form-control" value="{{ informacion.telefono }}" disabled>
+</div>
+<div class="form-group">
+  <label>13. Página web</label>
+  <input type="text" class="form-control" value="{{ informacion.pagina_web }}" disabled>
+</div>
+<div class="form-group">
+  <label>14. Correo electrónico</label>
+  <input type="text" class="form-control" value="{{ informacion.correo_electronico }}" disabled>
+</div>
+<div class="form-group">
+  <label>15. Existen planos del plantel</label>
+  <input type="text" class="form-control" value="{{ informacion.existen_planos }}" disabled>
+</div>
+<div class="form-group">
+  <label>16. Archivado en </label>
+  <input type="text" class="form-control" value="{{ informacion.archivado_en }}" disabled>
+</div>
+<div class="form-group">
+  <label>17. El plantel colinda al norte:</label>
+  <input type="text" class="form-control" value="{{ informacion.colinda_norte }}" disabled>
+</div>
+<div class="form-group">
+  <label>18. El plantel colinda al sur:</label>
+  <input type="text" class="form-control" value="{{ informacion.colinda_sur }}" disabled>
+</div>
+<div class="form-group">
+  <label>19. El plantel colinda al este:</label>
+  <input type="text" class="form-control" value="{{ informacion.colinda_este }}" disabled>
+</div>
+<div class="form-group">
+  <label>20. El plantel colinda al oeste:</label>
+  <input type="text" class="form-control" value="{{ informacion.colinda_oeste }}" disabled>
+</div>
+<div class="form-group">
+  <label>21. Cuenta con conectividad a internet</label>
+  <input type="text" class="form-control" value="{{ informacion.internet }}" disabled>
+</div>
+{% else %}
+<div class="alert alert-warning">No se ha encontrado información de datos del plantel.</div>
+{% endif %}

@@ -1,0 +1,28 @@
+{% if oferta %}
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Opcion Educativa</th>
+        <th scope="col">Modalidad</th>
+        <th scope="col">Turnos</th>
+        <th scope="col">Grupos</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for carrera in oferta %}
+      <tr>
+        <td><input type="text" class="form-control" value="{{carrera.nombre}}" disabled></td>
+        <td><input type="text" class="form-control" value="{{carrera.opcion_educativa}}" disabled></td>
+        <td><input type="text" class="form-control" value="{{carrera.modalidad}}" disabled></td>
+        <td><input type="text" class="form-control" value="{{carrera.turnos}}" disabled></td>
+        <td><input type="text" class="form-control" value="{{carrera.grupos}}" disabled></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="alert alert-warning">No se ha encontrado información de la oferta educativa.</div>
+{% endif %}

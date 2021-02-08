@@ -1,0 +1,1161 @@
+{% if infraestructura %}
+<div class="form-group">
+  <label for="latitud">Número de Niveles Construidos</label>
+  <input type="text" class="form-control" value="{{ infraestructura.niveles }}" disabled>
+</div>
+
+<div class="form-group">
+  <label for="longitud">Superficie Total del Terreno</label>
+  <input type="text" class="form-control" value="{{ infraestructura.superficie_total }}" disabled>
+</div>
+
+<div class="form-group">
+  <label for="calle">Superficie Libre</label>
+  <input type="text" class="form-control" value="{{ infraestructura.superficie_libre }}" disabled>
+</div>
+
+<div class="form-group">
+  <label for="no_ext">Infraestructura Urbana con la que cuenta el Plantel</label><br>
+  <input type="text" class="form-control" value="{{ infraestructura.superficie_urbana }}" disabled>
+</div>
+
+<div class="form-group">
+  <label for="no_ext">Uso del Plantel</label><br>
+  <input type="text" class="form-control" value="{{ infraestructura.uso_plantel }}" disabled>
+</div>
+
+<div class="form-group">
+  <label for="calle">Estado de conservación del Plantel</label>
+  <input type="text" class="form-control" value="{{ infraestructura.conservacion }}" disabled>
+</div>
+
+<div class="form-group">
+  <label for="calle">Número de Personas que labora en el plantel</label>
+  <input type="text" class="form-control" value="{{ infraestructura.personas_laboran }}" disabled>
+</div>
+
+<h3>Seleccionar si el plantel cuenta con la siguiente Infraestructura:</h3>
+
+<h3>Aulas</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label for="calle">Cuenta con</label>
+    {% if infraestructura.aulas_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label for="calle">Funcionalidad:</label>
+    <input type="text" class="form-control" value="{{ infraestructura.aulas_funcionalidad }}" disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label for="calle">Cantidad:</label>
+    <input type="text" class="form-control" value="{{ infraestructura.aulas_cantidad }}" disabled>
+  </div>
+</div>
+
+<h3>Laboratorios</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.laboratorios_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value="{{ infraestructura.laboratorios_funcionalidad }}" disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Cantidad:</label>
+    <input type="text" class="form-control" value="{{ infraestructura.laboratorios_cantidad }}" disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Especificar laboratorios:</label>
+    <input type="text" class="form-control" value="{{ infraestructura.laboratorios_especificar }}" disabled>
+  </div>
+</div>
+
+<h3>Talleres</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.talleres_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value="{{ infraestructura.talleres_funcionalidad }}" disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Cantidad de talleres</label>
+    <input type="text" class="form-control" value="{{ infraestructura.talleres_cantidad }}" disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Especificar talleres</label>
+    <input type="text" class="form-control" value="{{ infraestructura.talleres_especificar }}" disabled>
+  </div>
+</div>
+
+<h3>Salón de usos múltiple</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.salon_usos_multiple_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value="{{ infraestructura.salon_usos_multiple_funcionalidad }}" disabled>
+  </div>
+</div>
+
+<h3>Auditorio</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.auditorio_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value="{{ infraestructura.auditorio_funcionalidad }}" disabled>
+  </div>
+</div>
+
+<h3>Biblioteca</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.biblioteca_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value="{{infraestructura.biblioteca_funcionalidad}}" disabled>
+  </div>
+</div>
+
+<h3>Plaza cívica</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.plaza_civica_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.plaza_civica_funcionalidad}} disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Techada</label>
+    <input type="text" class="form-control" value={{infraestructura.plaza_civica_techada}} disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Tipo de techado</label>
+    <input type="text" class="form-control" value={{infraestructura.plaza_civica_tipo}} disabled>
+  </div>
+</div>
+
+<h3>Jardineras</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.jardineras_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.jardineras_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Áreas Verdes</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.areas_verdes_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.areas_verdes_funcionalidad}} disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label for="calle">Metros cuadrados</label>
+    <input type="text" class="form-control" value={{infraestructura.areas_verdes_metros}} disabled>
+  </div>
+</div>
+
+<h3>Bebederos</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.bebederos_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.bebederos_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Rampa para personas con discapacidad diferentes</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.rampa_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.rampa_funcionalidad}} disabled>
+  </div>
+
+  <h3>Instalaciones Deportivas</h3>
+  <hr class="red">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.deportivas_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.deportivas_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Canchas de Futbol Soccer</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.futbol_soccer_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.futbol_soccer_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Canchas de Futbol Rapido</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.futbol_rapido_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.futbol_rapido_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Canchas de Basquetbol</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.basquetbol_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.basquetbol_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Andadores / Pasillos</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.andadores_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.andadores_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Andadores / Pasillos</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.andadores_cantidad %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.andadores_funcionalidad}} disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Cuántos?</label>
+    <input type="text" class="form-control" value={{infraestructura.andadores_cantidad}} disabled>
+  </div>
+</div>
+
+<h3>Pórtico</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.portico_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.portico_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Cafetería</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.cafeteria_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.cafeteria_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Edificios</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.edificios_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.edificios_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Módulos administrativos</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.modulos_administrativos_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+</div>
+
+<h3>Dirección</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.direccion_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.direccion_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Control Escolar</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.control_escolar_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.control_escolar_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Servicio Social</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.servicio_social_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.servicio_social_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Prefectura</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.prefectura_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.prefectura_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Área Administrativa</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.area_administrativa_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.area_administrativa_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Área Académica</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.area_academica_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.area_academica_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Área de Planeación</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.area_planeacion_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.area_planeacion_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Área de Vinculación</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.area_vinculacion_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.area_vinculacion_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Área de Nivel de éstres</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.area_estres_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.area_estres_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Sala de maestros</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.sala_maestros_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.sala_maestros_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Cerco perimetral</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.cerco_perimetral_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.cerco_perimetral_funcionalidad}} disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>De qué tipo?</label>
+    <input type="text" class="form-control" value={{infraestructura.cerco_perimetral_tipo}} disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Metros lineales</label>
+    <input type="text" class="form-control" value={{infraestructura.cerco_perimetral_metros}} disabled>
+  </div>
+</div>
+
+<h3>Puertas o Accesos</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.puertas_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.puertas_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Caseta de Vigilancia</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.caseta_vigilancia_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.caseta_vigilancia_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Sistema Hidroneumático</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.sistema_hidro_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.sistema_hidro_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Subestación Eléctrica</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.estacion_elec_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.estacion_elec_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Transformador</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.transformador_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.transformador_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Tablero General</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.tablero_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.tablero_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Planta de energía eléctrica</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.planta_energia_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.planta_energia_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Aire acondicionado (Lavado)</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.aire_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.aire_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Equipos Minisplit</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.minisplit_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.minisplit_funcionalidad}} disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Cuántos?</label>
+    <input type="text" class="form-control" value={{infraestructura.minisplit_cuantos}} disabled>
+  </div>
+</div>
+
+<h3>Calefacción</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.calefaccion_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.calefaccion_funcionalidad}} disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Cuántos?</label>
+    <input type="text" class="form-control" value={{infraestructura.calefaccion_cuantos}} disabled>
+  </div>
+</div>
+
+<h3>Instalaciones contra Incendio</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.incendio_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.incendio_funcionalidad}} disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Cuántos?</label>
+    <input type="text" class="form-control" value={{infraestructura.incendio_cuantos}} disabled>
+  </div>
+</div>
+
+<h3>Equipo de Bombeo</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.bombeo_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.bombeo_funcionalidad}} disabled>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Cuántos?</label>
+    <input type="text" class="form-control" value={{infraestructura.bombeo_cuantos}} disabled>
+  </div>
+</div>
+
+<h3>Detectores de Humo</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.humo_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.humo_funcionalidad}} disabled>
+  </div>
+</div>
+
+<h3>Equipos de Alertamiento Sísmico</h3>
+<hr class="red">
+
+<div class="row">
+
+  <div class="form-group col-sm-6">
+    <label>Cuenta con</label>
+    {% if infraestructura.sismo_tiene %}
+    <input type="text" class="form-control" value="Si" disabled>
+    {% else %}
+    <input type="text" class="form-control" value="No" disabled>
+    {% endif %}
+  </div>
+
+  <div class="form-group col-sm-6">
+    <label>Funcionalidad:</label>
+    <input type="text" class="form-control" value={{infraestructura.sismo_funcionalidad}} disabled>
+  </div>
+</div>
+
+
+<h3>Sanitario para estudiantes</h3>
+<hr class="red">
+
+<div class="form-group col-sm-6">
+  <label>Cuenta con</label>
+  {% if infraestructura.sanitarios_estudiantes_tiene %}
+  <input type="text" class="form-control" value="Si" disabled>
+  {% else %}
+  <input type="text" class="form-control" value="No" disabled>
+  {% endif %}
+</div>
+
+<div class="form-group col-sm-6">
+  <label>Funcionalidad:</label>
+  <input type="text" class="form-control" value={{infraestructura.sanitarios_estudiantes_funcionalidad}} disabled>
+</div>
+
+<div class="form-group col-sm-6">
+  <label>¿Cuántos son para hombres?</label>
+  <input type="text" class="form-control" value={{infraestructura.sanitarios_estudiantes_hombre}} disabled>
+</div>
+
+<div class="form-group col-sm-6">
+  <label>¿Cuántos son para mujeres?</label>
+  <input type="text" class="form-control" value={{infraestructura.sanitarios_estudiantes_mujer}} disabled>
+</div>
+
+<h3>Sanitario para Docentes</h3>
+<hr class="red">
+
+<div class="form-group col-sm-6">
+  <label>Cuenta con</label>
+  {% if infraestructura.sanitarios_docentes_tiene %}
+  <input type="text" class="form-control" value="Si" disabled>
+  {% else %}
+  <input type="text" class="form-control" value="No" disabled>
+  {% endif %}
+</div>
+
+<div class="form-group col-sm-6">
+  <label>Funcionalidad:</label>
+  <input type="text" class="form-control" value={{infraestructura.sanitarios_docentes_funcionalidad}} disabled>
+</div>
+
+<div class="form-group col-sm-6">
+  <label>¿Cuántos son para hombres?</label>
+  <input type="text" class="form-control" value={{infraestructura.sanitarios_docentes_hombre}} disabled>
+</div>
+
+<div class="form-group col-sm-6">
+  <label>¿Cuántos son para mujeres?</label>
+  <input type="text" class="form-control" value={{infraestructura.sanitarios_docentes_mujer}} disabled>
+</div>
+
+<h3>Sanitarios para Administrativos</h3>
+<hr class="red">
+
+<div class="form-group col-sm-6">
+  <label>Cuenta con</label>
+  {% if infraestructura.sanitarios_administrativos_tiene %}
+  <input type="text" class="form-control" value="Si" disabled>
+  {% else %}
+  <input type="text" class="form-control" value="No" disabled>
+  {% endif %}
+</div>
+
+<div class="form-group col-sm-6">
+  <label>Funcionalidad:</label>
+  <input type="text" class="form-control" value={{infraestructura.sanitarios_administrativos_funcionalidad}} disabled>
+</div>
+
+<div class="form-group col-sm-6">
+  <label>¿Cuántos son para hombres?</label>
+  <input type="text" class="form-control" value={{infraestructura.sanitarios_administrativos_hombre}} disabled>
+</div>
+
+<div class="form-group col-sm-6">
+  <label>¿Cuántos son para mujeres?</label>
+  <input type="text" class="form-control" value={{infraestructura.sanitarios_administrativos_mujer}} disabled>
+</div>
+
+<h3>Fosa séptica</h3>
+<hr class="red">
+
+<div class="form-group col-sm-6">
+  <label>Cuenta con</label>
+  {% if infraestructura.fosa_tiene %}
+  <input type="text" class="form-control" value="Si" disabled>
+  {% else %}
+  <input type="text" class="form-control" value="No" disabled>
+  {% endif %}
+</div>
+
+<div class="form-group col-sm-6">
+  <label>Funcionalidad:</label>
+  <input type="text" class="form-control" value={{infraestructura.fosa_funcionalidad}} disabled>
+</div>
+
+<h3>Pozo de absorción</h3>
+<hr class="red">
+
+<div class="form-group col-sm-6">
+  <label>Cuenta con</label>
+  {% if infraestructura.pozo_tiene %}
+  <input type="text" class="form-control" value="Si" disabled>
+  {% else %}
+  <input type="text" class="form-control" value="No" disabled>
+  {% endif %}
+</div>
+
+<div class="form-group col-sm-6">
+  <label>Funcionalidad:</label>
+  <input type="text" class="form-control" value={{infraestructura.pozo_funcionalidad}} disabled>
+</div>
+
+<h3>Sistema de Drenaje</h3>
+<hr class="red">
+
+<div class="form-group col-sm-6">
+  <label>Cuenta con</label>
+  {% if infraestructura.drenaje_tiene %}
+  <input type="text" class="form-control" value="Si" disabled>
+  {% else %}
+  <input type="text" class="form-control" value="No" disabled>
+  {% endif %}
+</div>
+
+<div class="form-group col-sm-6">
+  <label>Funcionalidad:</label>
+  <input type="text" class="form-control" value={{infraestructura.drenaje_funcionalidad}} disabled>
+</div>
+
+{% else %}
+<div class="alert alert-warning">No se ha encontrado información la infraestructura.</div>
+{% endif %}
