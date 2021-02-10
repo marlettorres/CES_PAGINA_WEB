@@ -57,7 +57,12 @@
 </div>
 <div class="form-group">
   <label>15. Existen planos del plantel</label>
-  <input type="text" class="form-control" value="{{ informacion.existen_planos }}" disabled>
+
+  {% if informacion.existen_planos %}
+  <input type="text" class="form-control" value="Si" disabled>
+  {% else %}
+  <input type="text" class="form-control" value="No" disabled>
+  {% endif %}
 </div>
 <div class="form-group">
   <label>16. Archivado en </label>
@@ -81,7 +86,12 @@
 </div>
 <div class="form-group">
   <label>21. Cuenta con conectividad a internet</label>
-  <input type="text" class="form-control" value="{{ informacion.internet }}" disabled>
+
+  {% if informacion.internet %}
+  <input type="text" class="form-control" value="Si" disabled>
+  {% else %}
+  <input type="text" class="form-control" value="No" disabled>
+  {% endif %}
 </div>
 {% else %}
 <div class="alert alert-warning">No se ha encontrado información de datos del plantel.</div>

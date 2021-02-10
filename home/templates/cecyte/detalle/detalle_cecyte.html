@@ -28,7 +28,7 @@
     select_plantel.innerHTML = "";
 
     response = await fetch("cecyte/planteles/" + id_estado)
-    html = await res.text();
+    html = await response.text();
     select_plantel.innerHTML = html
   }
 
@@ -37,7 +37,7 @@
     divinformacion.innerHTML = "";
 
     response = await fetch("informacion/planteles/" + id_plantel)
-    html = await res.text();
+    html = await response.text();
     divinformacion.innerHTML = html
   }
 </script>

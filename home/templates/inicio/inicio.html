@@ -38,6 +38,19 @@
   {% endfor %}
 </div>
 
+
+<h3>Sitios de la Coordinación</h3>
+<hr class="red">
+<div class="row">
+  <div class="col-md-4">
+    <a target="_blank" href="https://dgeti.cecyte.edu.mx/"><img class="img-responsive btn-modal"
+        src="{% static 'inicio/covid.jpg' %}" title="Planteles COVID" /></a>
+  </div>
+  <div class="col-md-4">
+    <a target="_blank" href="https://certificados.cecyte.edu.mx/"><img class="img-responsive btn-modal"
+        src="{% static 'inicio/sisec.jpg' %}" title="SISEC" /></a>
+  </div>
+</div>
 {% endblock contenido %}
 
 {% block js %}<script src="{% static 'inicio.js' %}"></script>{% endblock js %}
