@@ -9,7 +9,6 @@ from .models import (
     MisionYVision,
     OfertaEducativaArea,
     OfertaEducativaCarrera,
-    CatEntidades,
     CatPlanteles,
 )
 
@@ -20,5 +19,4 @@ admin.site.register(PersonaColegio)
 admin.site.register(MisionYVision)
 admin.site.register(OfertaEducativaArea)
 admin.site.register(OfertaEducativaCarrera)
-admin.site.register(CatEntidades)
 admin.site.register(CatPlanteles)

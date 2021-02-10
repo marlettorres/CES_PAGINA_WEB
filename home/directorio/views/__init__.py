@@ -1,0 +1,2 @@
+from .directorio_colegios import directorio_colegios_view
+from .directorio_coordinacion import directorio_coordinacion_view

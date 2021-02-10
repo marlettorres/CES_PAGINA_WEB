@@ -1,5 +1,4 @@
 function loadPdf(ruta) {
-  console.log(ruta);
   let embedAcuerdo = document.createElement("embed");
   embedAcuerdo.src = ruta;
   embedAcuerdo.style.minWidth = "100%";
