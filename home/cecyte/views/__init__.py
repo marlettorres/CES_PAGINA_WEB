@@ -1,0 +1,1 @@
+from .cecyte import cecyte_view, cecyte_planteles, informacion_planteles

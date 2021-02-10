@@ -1,7 +1,7 @@
 {% load static %}
 
 <div class="panel-group">
-  {% for persona in area.get_personas %}
+  {% for persona in area.personas.all %}
   <div class="panel panel-default" style="margin-top: 1em">
     <div class="panel-heading"><h4>{{persona.nombre}}</h4></div>
     <div class="panel-body">

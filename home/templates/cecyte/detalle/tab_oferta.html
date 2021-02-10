@@ -13,11 +13,11 @@
     <tbody>
       {% for carrera in oferta %}
       <tr>
-        <td><input type="text" class="form-control" value="{{carrera.nombre}}" disabled></td>
-        <td><input type="text" class="form-control" value="{{carrera.opcion_educativa}}" disabled></td>
-        <td><input type="text" class="form-control" value="{{carrera.modalidad}}" disabled></td>
-        <td><input type="text" class="form-control" value="{{carrera.turnos}}" disabled></td>
-        <td><input type="text" class="form-control" value="{{carrera.grupos}}" disabled></td>
+        <td><input title="{{carrera.nombre}}" type="text" class="form-control" value="{{carrera.nombre}}" disabled></td>
+        <td><input title="{{carrera.opcion_educativa}}" type="text" class="form-control" value="{{carrera.opcion_educativa}}" disabled></td>
+        <td><input title="{{carrera.modalidad}}" type="text" class="form-control" value="{{carrera.modalidad}}" disabled></td>
+        <td><input title="{{carrera.turnos}}" type="text" class="form-control" value="{{carrera.turnos}}" disabled></td>
+        <td><input title="{{carrera.grupos}}" type="text" class="form-control" value="{{carrera.grupos}}" disabled></td>
       </tr>
       {% endfor %}
     </tbody>
