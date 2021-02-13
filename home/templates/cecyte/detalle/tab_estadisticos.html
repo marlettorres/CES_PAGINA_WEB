@@ -26,7 +26,11 @@
 </div>
 <div class="form-group">
   <label>7. Cuenta con plaza docente?</label>
-  <input type="text" class="form-control" value="{{estadistica.dg_plaza}}" disabled>
+  {% if estadistica.dg_plaza %}
+  <input type="text" class="form-control" value="Si" disabled>
+  {% else %}
+  <input type="text" class="form-control" value="No" disabled>
+  {% endif %}
 </div>
 <div class="form-group">
   <label>8. Antiguedad de la plaza</label>
