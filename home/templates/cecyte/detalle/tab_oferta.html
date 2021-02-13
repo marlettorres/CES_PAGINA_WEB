@@ -1,3 +1,8 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 {% if oferta %}
 <div class="table-responsive">
   <table class="table table-striped">
@@ -13,11 +18,11 @@
     <tbody>
       {% for carrera in oferta %}
       <tr>
-        <td><input title="{{carrera.nombre}}" type="text" class="form-control" value="{{carrera.nombre}}" disabled></td>
-        <td><input title="{{carrera.opcion_educativa}}" type="text" class="form-control" value="{{carrera.opcion_educativa}}" disabled></td>
-        <td><input title="{{carrera.modalidad}}" type="text" class="form-control" value="{{carrera.modalidad}}" disabled></td>
-        <td><input title="{{carrera.turnos}}" type="text" class="form-control" value="{{carrera.turnos}}" disabled></td>
-        <td><input title="{{carrera.grupos}}" type="text" class="form-control" value="{{carrera.grupos}}" disabled></td>
+        <td><input data-toggle="tooltip" data-placement="top" title="{{carrera.nombre}}" style="font-size: 12px; width: 100%;" type="text" value="{{carrera.nombre}}" disabled></td>
+        <td><input style="font-size: 12px; width: 100%;" type="text" value="{{carrera.opcion_educativa}}" disabled></td>
+        <td><input style="font-size: 12px"; type="text" value="{{carrera.modalidad}}" disabled></td>
+        <td><input style="font-size: 12px"; type="text" value="{{carrera.turnos}}" disabled></td>
+        <td><input style="font-size: 12px; width: 40%;" type="text" value="{{carrera.grupos}}" disabled></td>
       </tr>
       {% endfor %}
     </tbody>
@@ -26,3 +31,11 @@
 {% else %}
 <div class="alert alert-warning">No se ha encontrado información de la oferta educativa.</div>
 {% endif %}
+
+{% block js %}
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+  </script>
+{% endblock %}

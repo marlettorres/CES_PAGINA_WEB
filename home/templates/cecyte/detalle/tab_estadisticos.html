@@ -1,4 +1,5 @@
 {% if estadistica %}
+<h4>Información del Director del Plantel</h4>
 <div class="form-group">
   <label>1. Nombre(s)</label>
   <input type="text" class="form-control" value="{{estadistica.dg_nombre}}" disabled>
@@ -32,13 +33,14 @@
   {% endif %}
 </div>
 <div class="form-group">
-  <label>8. Antiguedad de la plazada</label>
+  <label>8. Antiguedad de la plaza</label>
   <input type="text" class="form-control" value="{{estadistica.dg_plaza_antiguedad}}" disabled>
 </div>
 <div class="form-group">
   <label>9. Tiene horas frente a grupo?</label>
   <input type="text" class="form-control" value="{{estadistica.dg_horas}}" disabled>
 </div>
+<h4>Información del Plantel</h4>
 <div class="form-group">
   <label>10. Total de computadoras para uso de docente con acceso a internet</label>
   <input type="text" class="form-control" value="{{estadistica.equipo_computo_docente_con}}" disabled>
