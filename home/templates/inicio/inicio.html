@@ -13,7 +13,8 @@
   <div class="carousel-inner text-center">
 
     {% for elemento in elementos_banners %}
-    <img src="{% static ruta_banners|add:elemento.archivo_vista %}" alt="{{elemento.nombre}}" class="img-responsive" />
+    <img loading="lazy" src="{% static ruta_banners|add:elemento.archivo_vista %}" alt="{{elemento.nombre}}"
+      class="img-responsive" />
 
     {% endfor %}
   </div>
@@ -43,16 +44,16 @@
 <hr class="red">
 <div class="row">
   <div class="col-md-4">
-    <a target="_blank" href="https://dgeti.cecyte.edu.mx/"><img class="img-responsive btn-modal"
+    <a target="_blank" href="https://dgeti.cecyte.edu.mx/"><img loading="lazy" class="img-responsive btn-modal"
         src="{% static 'inicio/covid.jpg' %}" title="Planteles COVID" /></a>
   </div>
   <div class="col-md-4">
-    <a target="_blank" href="https://certificados.cecyte.edu.mx/"><img class="img-responsive btn-modal"
+    <a target="_blank" href="https://certificados.cecyte.edu.mx/"><img loading="lazy" class="img-responsive btn-modal"
         src="{% static 'inicio/sisec.jpg' %}" title="SISEC" /></a>
   </div>
   <div class="col-md-4">
-    <a target="_blank" href="https://certificados.cecyte.edu.mx/"><img class="img-responsive btn-modal"
-        src="{% static 'inicio/cedula.jpg' %}" title="SISEC" /></a>
+    <a target="_blank" href="https://cuestionario.cecyte.edu.mx/CuestionarioEscuela"><img loading="lazy" class="img-responsive btn-modal"
+        src="{% static 'inicio/cedula.jpg' %}" title="Actualizar cedula plantel" /></a>
   </div>
 </div>
 {% endblock contenido %}
