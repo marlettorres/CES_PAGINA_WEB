@@ -1,14 +1,14 @@
 {% load static %}
 
 {% if elemento.imagen %}
-<img class="img-responsive btn-modal" src="{% static ruta|add:elemento.archivo_vista %}"
+<img loading="lazy" class="img-responsive btn-modal" src="{% static ruta|add:elemento.archivo_vista %}"
   data-imagen="{% static ruta|add:elemento.imagen %}" onclick="showModalImagen(this.dataset.imagen)" />
 {% endif %}
 {% if elemento.texto %}
-<img class="img-responsive btn-modal" src="{% static ruta|add:elemento.archivo_vista %}" data-texto="{{elemento.texto}}"
-  onclick="showModalTexto(this.dataset.texto)" />
+<img loading="lazy" class="img-responsive btn-modal" src="{% static ruta|add:elemento.archivo_vista %}"
+  data-texto="{{elemento.texto}}" onclick="showModalTexto(this.dataset.texto)" />
 {% endif %}
 {% if elemento.pdf %}
-<img class="img-responsive btn-modal" src="{% static ruta|add:elemento.archivo_vista %}"
+<img loading="lazy" class="img-responsive btn-modal" src="{% static ruta|add:elemento.archivo_vista %}"
   data-pdf="{% static ruta|add:elemento.pdf %}" onclick="showPdfModal(this.dataset.pdf)" />
 {% endif %}
