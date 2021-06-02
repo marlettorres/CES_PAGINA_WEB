@@ -10,12 +10,17 @@ from home.models import (
     OfertaEducativa,
     PlantelLegal,
     PlantelVinculacion,
+    Periodoregistro,
 )
 
 
 def cecyte_view(request):
     estados = Estado.objects.filter(estatus=True)
-    context = {"estados": estados}
+    periodos =Periodoregistro.objects.filter(activo=True).order_by('-id')
+    context = {
+        "estados": estados,
+        "periodos": periodos,
+        }
     return render(request, "cecyte/cecyte.html", context)
 
 
@@ -25,9 +30,9 @@ def cecyte_planteles(request, id):
     return render(request, "cecyte/detalle/filtro_plantel.html", context)
 
 
-def informacion_planteles(request, id):
+def informacion_planteles(request, id, idpe):
     context = {}
-    encuesta = EncuestaPlantel.objects.filter(plantel_id=id).first()
+    encuesta = EncuestaPlantel.objects.filter(plantel_id=id).filter(periodo_id=idpe).first()
 
     encuesta_id = 0
     if encuesta is not None:

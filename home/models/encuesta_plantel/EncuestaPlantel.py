@@ -1,6 +1,7 @@
 from django.db import models
 from home.models.Estado import Estado
 from home.models.CatPlanteles import CatPlanteles
+from home.models.Periodoregistro import Periodoregistro
 
 class EncuestaPlantel(models.Model):
     class Meta:
@@ -16,6 +17,11 @@ class EncuestaPlantel(models.Model):
     )
     plantel = models.ForeignKey(
         CatPlanteles,
+        on_delete=models.CASCADE,
+        related_name="encuesta_plantel",
+    )
+    periodo = models.ForeignKey(
+        Periodoregistro,
         on_delete=models.CASCADE,
         related_name="encuesta_plantel",
     )

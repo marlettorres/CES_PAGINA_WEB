@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from home.models import PaginaCecyte, ContenidoPagina
-
+import os
 
 def GET_RESPONSE(request, context={}):
     secciones = PaginaCecyte.objects.all()
@@ -31,6 +31,25 @@ def POST_RESPONSE(request):
     context = {}
     return GET_RESPONSE(request, context)
 
+def cambiar_estado(request,id):
+    aviso = ContenidoPagina.objects.get(id=id)
+    aviso.estatus='0'
+    
+    url=PaginaCecyte.objects.get(id=aviso.pagina_cecyte_id)
+    if aviso.archivo_vista is not None:
+        os.remove("recursos/"+url.carpeta+aviso.archivo_vista)
+        aviso.archivo_vista=''
+    #if aviso.pdf is not None:
+    if len(aviso.pdf) > 2:    
+        os.remove("recursos/"+url.carpeta+aviso.pdf)
+        aviso.pdf=''
+    #elif aviso.imagen is not None:
+    elif len(aviso.imagen) > 2:
+        os.remove("recursos/"+url.carpeta+aviso.imagen)
+        aviso.imagen=''
+   
+    aviso.save()
+    return redirect(to="/administrador/avisos")
 
 @login_required(login_url="/administrador/login")
 def avisos_view(request):

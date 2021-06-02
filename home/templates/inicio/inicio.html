@@ -60,6 +60,18 @@
         src="{% static 'inicio/festival.jpg' %}" title="Registro Festival Academico 2021" /></a>
   </div>
 </div>
+
+
+<h3>Noticias</h3>
+<hr class="red">
+<div class="row">
+  {% for elemento in elementos_noticias %}
+  <div class="col-md-4">
+    {% include 'boton_modal.html' with ruta=ruta_noticias %}
+  </div>
+  {% endfor %}
+</div>
+
 {% endblock contenido %}
 
 {% block js %}<script src="{% static 'inicio.js' %}"></script>{% endblock js %}

@@ -11,7 +11,7 @@ def inicio_view(request):
 def get_contenido_inicio():
     AREAID_BANNERS = 4
     AREAID_ANUNCIOS = 5
-    AREAID_NOTICIAS = 5
+    AREAID_NOTICIAS = 6
 
     pagina_banners = PaginaCecyte.objects.get(id=AREAID_BANNERS)
     pagina_anuncios = PaginaCecyte.objects.get(id=AREAID_ANUNCIOS)
@@ -29,7 +29,6 @@ def get_contenido_inicio():
         pagina_cecyte=pagina_noticias,
         estatus=1,
     )
-
     return {
         "elementos_banners": elementos_banners,
         "elementos_anuncios": elementos_anuncios,
