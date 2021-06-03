@@ -9,32 +9,41 @@
 <hr class="red">
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
-
+ 
 
   <div class="form-group">
 
     <label class="control-label">Sección del anuncio:</label>
     <select name="pagina_cecyte_id" class="form-control">
       <option value="0">Selecciona una opción</option>
-
+      
       {% for pagina in paginas_cecyte %}
-      <option value="{{ pagina.id }}">
-        {{ pagina.nombre }}
-      </option>
-      {% endfor %}
+        {% if paginas_cecyte2.id == pagina.id %}
+          <option value="{{ pagina.id }}" selected>
+            {{ pagina.nombre }}
+          </option>
+        {% else %}
+          <option value="{{ pagina.id }}" >
+            {{ pagina.nombre }}
+          </option>
+        {% endif %}  
 
+      {% endfor %}
+   
+      
     </select>
   </div>
   <div class="form-group">
     <label class="control-label">Titulo:</label>
-    <input class="form-control" name="nombre" placeholder="Titulo del anuncio" type="text" required>
+    <input class="form-control" value="{{nom}}" name="nombre" placeholder="Titulo del anuncio" type="text" required>
   </div>
-
+  
   <div class="form-group">
     <label class="control-label">Imagen cuadro</label>
-    <input type="file" name="archivo_vista">
+    <input type="file" name="archivo_vista" accept="image/gif, image/jpeg, image/png, image/jpg">
   </div>
 
+ 
   <div class="form-group">
     <label class="control-label">Tipo de anuncio</label>
     <div class="radio">
@@ -49,6 +58,7 @@
       </label>
     </div>
   </div>
+  
 
 
   <div class="form-group" id="bloque-texto" style="display: none;">
@@ -57,11 +67,11 @@
   </div>
   <div class="form-group" id="bloque-imagen" style="display: none;">
     <label class="control-label">Imagen</label>
-    <input type="file" name="imagen">
+    <input type="file" name="imagen" accept="image/gif, image/jpeg, image/png, image/jpg">
   </div>
   <div class="form-group" id="bloque-pdf" style="display: none;">
     <label class="control-label">PDF</label>
-    <input type="file" name="pdf">
+    <input type="file" name="pdf" accept="application/pdf">
   </div>
 
   <div class="alert alert-danger" id="div-error" {% if error %}{%else%} style="display: none;" {% endif %}>

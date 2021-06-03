@@ -6,7 +6,7 @@ urlpatterns = [
     path("cecytes", cecyte_view, name="cecytes"),
     path("cecyte/planteles/<int:id>", cecyte_planteles, name="cecyte/planteles/"),
     path(
-        "informacion/planteles/<int:id>",
+        "informacion/planteles/<int:id>/<int:idpe>",
         informacion_planteles,
         name="informacion/planteles/",
     ),

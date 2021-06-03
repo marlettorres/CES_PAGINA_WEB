@@ -1,0 +1,149 @@
+{% extends 'index.html' %}
+
+{% block contenido %}
+<h2 aliging-ce>Usuarios</h2>
+<hr class="red">
+<div class="container">
+  <a href="/administrador">Regresar</a>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col" class="text-center">Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for usuario in usuarios %}
+                  <tr>
+                    <th scope="row">{{usuario.id}}</th>
+                    <td>{{usuario.username}}</td>
+                    <td class="text-center"><a href='/administrador/actualizar-usuario/{{usuario.id}}' class="btn btn-link" >Actualizar </a>
+                      <a href='/administrador/eliminar-usuario/{{usuario.id}}' class="btn btn-link">Eliminar</a></td>
+                  </tr>
+                  {% endfor %}
+               
+                </tbody>
+              </table>
+        </div>
+        <div class="col-md-6">
+            {% if usuario.id == null %}
+            <h3 class="text-center text-danger">Registrar usuario</h3>
+            <form method="POST" class="form-horizontal" id="formulario">
+              {% csrf_token %}
+                <div class="form-group">
+                  <label class="col-sm-3 control-label " for="email-03">Usuario:</label>
+                  <div class="col-sm-9">
+                    <input class="form-control" name="username"  id="username" placeholder="Nombre de usuario" type="text" maxlength="150" required>
+                  </div>
+                </div>
+                <div class="form-group ">
+                  <label class="col-sm-3 control-label " for="password-03">Contraseña:</label>
+                  <div class="col-sm-9">
+                    <input class="form-control " name="password" id="password1" placeholder="Contraseña" type="password" maxlength="128" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" for="password-03">Confirmar contraseña:</label>
+                    <div class="col-sm-7">
+                      <input class="form-control" name="password2" id="password2" placeholder="Confirmar contraseña" type="password" maxlength="128" required>
+                    </div>
+                  </div> 
+               
+                <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-9">
+                    <button class="btn btn-primary pull-right" type="submit" id="submit">Guardar</button>
+                  </div>
+                </div> 
+              </form>
+              {% else %}
+              <h3 class="text-center text-danger">Modificar usuario</h3>
+              <form method="POST" action="/administrador/modificar-usuario" class="form-horizontal" id="formulario">
+                {% csrf_token %}
+               <input type="hidden" name="iduser" value="{{ usuario.id }}">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="email-03">Usuario:</label>
+                    <div class="col-sm-9">
+                      <input class="form-control" name="username" value="{{ usuario.username }}" id="username" placeholder="Nombre de usuario" type="text" maxlength="150" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-5 control-label" for="password-03">Nueva contraseña:</label>
+                    <div class="col-sm-7">
+                      <input class="form-control" name="password" id="password1" placeholder="Contraseña" type="password" maxlength="128" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-5 control-label" for="password-03">Confirmar contraseña:</label>
+                      <div class="col-sm-7">
+                        <input class="form-control" name="password2" id="password2" placeholder="Confirmar contraseña" type="password" maxlength="128" required>
+                      </div>
+                    </div> 
+                 
+                  <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                      <button class="btn btn-primary pull-right" type="submit" id="submit">Guardar</button>
+                    </div>
+                  </div> 
+                </form>
+                {% endif %}
+
+        </div>
+        
+    </div>
+</div>
+<script>
+  const formulario= document.getElementById('formulario');
+  const inputs =document.querySelectorAll('#formulario input');
+  const campos={
+    password1:false,
+    password2:false
+  }
+  const validaFormulario=(e) => {
+    switch(e.target.name){
+      case "password":
+      validarPassword2();
+        break;
+      case "password2":
+        validarPassword2();
+        break;
+    }
+  }
+  const validarPassword2=()=>{
+    const inputPassword1=document.getElementById('password1');
+    const inputPassword2=document.getElementById('password2');
+    if(inputPassword1.value !== inputPassword2.value){
+      document.getElementById('password1').classList.add('alert-danger')
+      document.getElementById('password2').classList.add('alert-danger')
+      campos['password1']=false;
+      campos['password2']=false;
+    }else{
+      document.getElementById('password1').classList.remove('alert-danger')
+      document.getElementById('password2').classList.remove('alert-danger')
+      campos['password1']=true;
+      campos['password2']=true;
+    }
+  }
+
+  inputs.forEach((input) => {
+    input.addEventListener('keyup',validaFormulario);
+    input.addEventListener('blur',validaFormulario);
+  });
+
+formulario.addEventListener('submit',(e)=>{
+  
+  if(!campos.password1 && !campos.password2){
+    e.preventDefault();
+  }
+});
+
+</script>
+
+{% endblock contenido %}
+
+
+{% block title1 %}Administrador | CECyTEs{% endblock title1 %}
+{% block title2 %}Administrador | CECyTEs{% endblock title2 %}
+{% block title3 %}Administrador | CECyTEs{% endblock title3 %}

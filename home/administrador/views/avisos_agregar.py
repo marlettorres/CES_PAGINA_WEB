@@ -2,16 +2,27 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpRequest
 from django.shortcuts import render
 from home.models import PaginaCecyte
-
+from home.models import ContenidoPagina
 from .forms import UploadFileForm
+
+
 
 
 def GET_RESPONSE(request, context, id=None):
     form = UploadFileForm()
     if id is not None:
         contenido = ContenidoPagina.objects.get(id=id)
+        contenido2 = PaginaCecyte.objects.all()
         form.nombre = contenido.nombre
         form.pagina_cecyte_id = contenido.pagina_cecyte.id
+        context={"form" : form,
+        "idd":contenido.id,
+        "nom":contenido.nombre,
+        "paginas_cecyte":contenido2,
+        "paginas_cecyte2":contenido.pagina_cecyte,
+        }
+        
+        return render(request, "administrador/avisos_agregar.html", context)
     context["form"] = form
 
     return render(request, "administrador/avisos_agregar.html", context)

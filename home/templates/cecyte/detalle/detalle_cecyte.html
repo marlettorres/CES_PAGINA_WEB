@@ -13,10 +13,21 @@
 
   <div class="form-group col-md-4">
     <label>Plantel</label>
-    <select onchange="mostrarInformacion(this.value);" class="form-control" id="select-plantel">
+    <select onchange="mostrarInformacion('select-plantel','select-periodo');" class="form-control" id="select-plantel">
       <option value="0">-- Selecciona una opcion --</option>
     </select>
   </div>
+
+  <div class="form-group col-md-4">
+    <label>Periodo</label>
+    <select onchange="mostrarInformacion('select-plantel','select-periodo');" class="form-control" id="select-periodo">
+      <option value="0">-- Selecciona una opcion --</option>
+      {% for period in periodos %}
+      <option value="{{ period.id }}">{{ period.periodo }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
 </div>
 <div id="div-informacion"></div>
 
@@ -32,11 +43,14 @@
     select_plantel.innerHTML = html
   }
 
-  async function mostrarInformacion(id_plantel) {
+  async function mostrarInformacion(idplantel, idperiodo) {
     divinformacion = document.getElementById("div-informacion");
     divinformacion.innerHTML = "";
 
-    response = await fetch("informacion/planteles/" + id_plantel)
+    id_plantel = (idplantel != null) ? document.getElementById(idplantel).value : 0;
+    idpe=(idperiodo !=null) ? document.getElementById(idperiodo).value :0;
+
+    response = await fetch("informacion/planteles/" + id_plantel+"/"+idpe)
     html = await response.text();
     divinformacion.innerHTML = html
   }

@@ -93,7 +93,11 @@
           {% endif %}
         </td>
         <td class="text-center">
-          {% if aviso.estatus %}Activo{% else %}Inactivo{% endif %}
+          {% if aviso.estatus %}
+          <a href='/administrador/avisos/cambiar-estado/{{aviso.id}}'>Activo</a>
+          {% else %}
+          Inactivo
+          {% endif %}
         </td>
         <td class="text-center">
           <a href="/administrador/avisos/editar/{{aviso.id}}" class="btn btn-link">Editar</a>
