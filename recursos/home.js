@@ -28,3 +28,9 @@ function showModalImagen(ruta) {
   imagenModalBody.appendChild(imagenImg);
   $("#modal-imagen").modal("toggle");
 }
+
+function showModalCuestionario(texto) {
+ // let pTexto = document.getElementById("p-cuestionario");
+  //pTexto.innerText = texto;
+  $("#modal-cuestionario").modal("toggle");
+}

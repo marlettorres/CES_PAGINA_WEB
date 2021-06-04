@@ -1,17 +1,35 @@
 {% load static %}
+
 <h3>Estados</h3>
 
 <hr class="red" />
 <div class="row">
   {% for estado in estados %}
   <div class="col-sm-6 col-md-4 col-lg-3" style="margin-bottom: 1em;">
-    <a href="{{ estado.enlace }}" target="_blank"
-      ><img
+
+    {% if estado.id != 5 %}
+    <a href="{{ estado.enlace }}" target="_blank">
+      <img
         loading="lazy"
         src="{% static 'cecyte/estados/'|add:estado.imagen %}"
         class="img-responsive"
         alt="{{ estado.nombre }}"
-    /></a>
+    />
+   </a>
+   {% endif %}
+   {% if estado.id == 5 %}  
+   <a href="#"  type="button" role="button"  onclick="showModalCuestionario()">
+      <img
+      loading="lazy"
+      src="{% static 'cecyte/estados/'|add:estado.imagen %}"
+      class="img-responsive"
+      alt="{{ estado.nombre }}"
+      />
+    </a>
+   {% endif %}
+
   </div>
   {% endfor %}
 </div>
+
+
