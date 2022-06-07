@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 
-from .views import avisos_agregar_view, avisos_view, inicio_view, login_view, registrousuario_view, actualizar_usuario,eliminar_usuario, modificar_usuario,salir,cambiar_estado
+from .views import avisos_agregar_view, agregar_imagen_view, avisos_view, inicio_view, login_view, registrousuario_view, actualizar_usuario,eliminar_usuario, modificar_usuario,salir,cambiar_estado
 
 urlpatterns = [
     path("administrador", inicio_view, name="admin-inicio"),
@@ -27,6 +27,11 @@ urlpatterns = [
         avisos_agregar_view,
         name="admin-avisos-editar",
     ),
+    path(
+        "administrador/imagenes/agregar/<int:id>",
+        agregar_imagen_view, 
+        name="admin-imagenes-agregar",
+    ),    
     path(
         "administrador/avisos/cambiar-estado/<int:id>",
         cambiar_estado,

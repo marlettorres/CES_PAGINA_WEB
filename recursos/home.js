@@ -1,7 +1,12 @@
-function showModalTexto(texto) {
+function showModalTexto(texto) { 
   let pTexto = document.getElementById("p-texto");
   pTexto.innerText = texto;
   $("#modal-texto").modal("toggle");
+}
+
+function showModalTextoEditor(texto) { 
+  document.getElementById("texto-editor").innerHTML = texto;
+  $("#modal-texto2").modal("toggle");
 }
 
 function showPdfModal(ruta) {

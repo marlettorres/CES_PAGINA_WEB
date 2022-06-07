@@ -3,13 +3,11 @@ from django.http import HttpResponseRedirect, HttpRequest
 from django.shortcuts import render
 from home.models import PaginaCecyte
 from home.models import ContenidoPagina
-from .forms import UploadFileForm
-
-
-
+from home.models import ImagenNoticia
+from .forms import UploadImagenForm
 
 def GET_RESPONSE(request, context, id=None):
-    form = UploadFileForm()
+    form = UploadImagenForm()
     if id is not None:
         contenido = ContenidoPagina.objects.get(id=id)
         contenido2 = PaginaCecyte.objects.all()
@@ -18,37 +16,33 @@ def GET_RESPONSE(request, context, id=None):
         context={"form" : form,
         "idd":contenido.id,
         "nom":contenido.nombre,
-        "desc":contenido.descripcion_breve,
         "paginas_cecyte":contenido2,
         "paginas_cecyte2":contenido.pagina_cecyte,
         }
         
-        return render(request, "administrador/avisos_agregar.html", context)
+        return render(request, "administrador/agregar_imagen.html", context)
     context["form"] = form
 
-    return render(request, "administrador/avisos_agregar.html", context)
+    return render(request, "administrador/agregar_imagen.html", context)
 
 
 def POST_RESPONSE(request, id):
     context = {}
-    form = UploadFileForm(request.POST, request.FILES)
+    form = UploadImagenForm(request.POST, request.FILES)
 
-    form_valido = form.formulario_valido(request)
-    if form_valido == False:
-        context["error"] = "Favor de llenar correctamente el formulario"
-        return GET_RESPONSE(request, context)
 
-    form.guardar_avisos_bd(request, id)
-    form.guardar_avisos_disco(request)
+
+    form.guardar_imagen_bd(request, id)
+    form.guardar_imagen_disco(request)
 
     return HttpResponseRedirect("/administrador/avisos")
 
 
 @login_required(login_url="/administrador/login")
-def avisos_agregar_view(request, id=None):
+def agregar_imagen_view(request, id=None):
     context = {
         "paginas_cecyte": PaginaCecyte.objects.all(),
     }
-    if request.method == "POST": 
+    if request.method == "POST":
         return POST_RESPONSE(request, id)
     return GET_RESPONSE(request, context, id)

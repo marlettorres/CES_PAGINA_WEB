@@ -9,5 +9,6 @@ from .PaginaCecyte import PaginaCecyte
 from .Periodoregistro import Periodoregistro
 from .PersonaColegio import PersonaColegio
 from .PersonaCoordinacion import PersonaCoordinacion
+from .ImagenNoticia import ImagenNoticia
 
 from .encuesta_plantel import *

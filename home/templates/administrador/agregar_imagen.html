@@ -1,0 +1,56 @@
+{%extends 'index.html'%}{% load static %}{% block contenido %}
+
+<ol class="breadcrumb">
+  <li><a href="/administrador">Administrador</a></li>
+  <li><a href="/administrador/imagenes">Imagenes-Noticia</a></li>
+</ol>
+
+<h2>Agregar imagenes</h2>
+<hr class="red">
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+ 
+
+  <div class="form-group">
+
+    <label class="control-label">Sección del anuncio:</label>
+    <select name="pagina_cecyte_id" class="form-control" id="pagina_cecyte_id">
+      <option value="0">Selecciona una opción</option>
+      
+      {% for pagina in paginas_cecyte %}
+        {% if paginas_cecyte2.id == pagina.id %}
+          <option value="{{ pagina.id }}" selected>
+            {{ pagina.nombre }}
+          </option>
+        {% else %}
+          <option value="{{ pagina.id }}" >
+            {{ pagina.nombre }}
+          </option>
+        {% endif %}  
+
+      {% endfor %}
+    </select> 
+  </div>
+  <div class="form-group">
+    <label class="control-label">Imagen</label>
+    <input type="hidden" name="contenido_pagina_id" class="form-control" value="{{idd}}">
+    <input type="file" name="archivo_imagen" accept="image/gif, image/jpeg, image/png, image/jpg">
+  </div>
+
+  <div class="alert alert-danger" id="div-error" {% if error %}{%else%} style="display: none;" {% endif %}>
+    <strong>Alerta: </strong> <span id="span-error">{{error}}</span>
+  </div>
+  <input type="submit" value="Save" class="btn btn-primary" />
+</form>
+{% endblock contenido %}
+
+
+{% block title1 %}Administrador | CECyTEs {% endblock %}
+{% block title2 %}Administrador | CECyTEs {% endblock %}
+{% block title3 %}Administrador | CECyTEs {% endblock %}
+
+
+
+{% block css %}{% endblock css %}
+{% block js %}<script src="{% static 'administrador/paginas.js' %}"></script>
+{% endblock js %}

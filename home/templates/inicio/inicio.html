@@ -3,21 +3,21 @@
 
 
 {% block contenido %}
+
 <div id="carousel-banners" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-
     {% for elemento in elementos_banners %}
-    <li data-target="#carousel-banners" data-slide-to="{{elemento.id}}"></li>
+    <li data-target="#carousel-banners" data-slide-to="{{ elemento.id } }"  class="{% if forloop.first %} active {% endif %}"></li>
     {% endfor %}
   </ol>
-  <div class="carousel-inner text-center">
-
+  <div class="carousel-inner">
     {% for elemento in elementos_banners %}
-    <img loading="lazy" src="{% static ruta_banners|add:elemento.archivo_vista %}" alt="{{elemento.nombre}}"
+    <div class="item {% if forloop.first %} active {% endif %}">
+      <img loading="lazy" src="{% static ruta_banners|add:elemento.archivo_vista %}" alt="First slide"
       class="img-responsive" />
-
+    </div>
     {% endfor %}
-  </div>
+  </div>    
   <a class="left carousel-control" href="#carousel-banners" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
     <span class="sr-only">Anterior</span>
@@ -27,6 +27,7 @@
     <span class="sr-only">Siguiente</span>
   </a>
 </div>
+
 
 <h3>Anuncios</h3>
 <hr class="red">
@@ -55,10 +56,6 @@
     <a target="_blank" href="https://cuestionario.cecyte.edu.mx/CuestionarioEscuela"><img loading="lazy" class="img-responsive btn-modal"
         src="{% static 'inicio/cedula.jpg' %}" title="Actualizar cedula plantel" /></a>
   </div>
-  <div class="col-md-4">
-    <a target="_blank" href="https://cuestionario.cecyte.edu.mx/RegistroFestival"><img loading="lazy" class="img-responsive btn-modal"
-        src="{% static 'inicio/festival.jpg' %}" title="Registro Festival Academico 2021" /></a>
-  </div>
 </div>
 
 
@@ -68,6 +65,7 @@
   {% for elemento in elementos_noticias %}
   <div class="col-md-4">
     {% include 'boton_modal.html' with ruta=ruta_noticias %}
+    {% include 'div_noticia.html' with ruta=ruta_noticias %}
   </div>
   {% endfor %}
 </div>
@@ -91,6 +89,5 @@
   </div>
 </div>
 
-{% endblock contenido %}
 
-{% block js %}<script src="{% static 'inicio.js' %}"></script>{% endblock js %}
+{% endblock contenido %}

@@ -6,11 +6,12 @@ class ContenidoPagina(models.Model):
         return self.nombre
 
     class Meta:
-        db_table = "contenido_pagina"
+        db_table = "contenido_pagina" 
 
     nombre = models.CharField(max_length=200)
+    descripcion_breve = models.TextField()
     archivo_vista = models.CharField(max_length=200, null=True)
-    texto = models.CharField(max_length=1000, null=True)
+    texto = models.TextField()
     pdf = models.CharField(max_length=200, null=True)
     imagen = models.CharField(max_length=200, null=True)
     estatus = models.BooleanField(default=True)
