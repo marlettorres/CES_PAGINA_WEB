@@ -1,0 +1,18 @@
+{% load static %}
+
+<div id="description-noti">
+    <h5>{{elemento.nombre}}</h5>
+    <p>{{elemento.descripcion_breve}}</p>
+    <br>
+    <div class="md-2">
+        {% if elemento.imagen %}
+        <button type="button" class="btn btn-info" data-imagen="{{elemento.imagen}}" onclick="showModalImagen(this.dataset.imagen)" >Leer más</button>
+        {% endif %}
+        {% if elemento.texto %}
+        <button type="button" class="btn btn-info" data-texto="{{elemento.texto}}" onclick="showModalTextoEditor(this.dataset.texto)" >Leer más</button>
+        {% endif %} 
+        {% if elemento.pdf %}
+        <button type="button" class="btn btn-info" data-pdf="{{elemento.pdf}}" onclick="showPdfModal(this.dataset.pdf)" >Leer más</button>
+        {% endif %}                
+    </div>
+</div>

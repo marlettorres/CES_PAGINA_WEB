@@ -18,8 +18,9 @@ def guardar_archivo(tipo,carpeta, file):
 
 class UploadFileForm(forms.Form):
     nombre = forms.CharField(max_length=50)
+    descripcion_breve = forms.CharField(max_length=1000, required=False)
     archivo_vista = forms.FileField()
-    texto = forms.CharField(max_length=1000, required=False)
+    texto = forms.CharField(max_length=5000, required=False)
     pdf = forms.FileField(required=False)
     imagen = forms.FileField(required=False)
     pagina_cecyte_id = forms.IntegerField()
@@ -38,7 +39,7 @@ class UploadFileForm(forms.Form):
             form_valido = False
         return form_valido
 
-    def guardar_avisos_bd(self, request, id):
+    def guardar_avisos_bd(self, request, id): 
         tipo_bloque = self.cleaned_data["tipo_bloque"]
         fecha=datetime.datetime.now()
 
@@ -48,6 +49,7 @@ class UploadFileForm(forms.Form):
             contenido = ContenidoPagina()
         #print("self.cleaned_data['nombre']", self.cleaned_data["nombre"])
         contenido.nombre = self.cleaned_data["nombre"]
+        contenido.descripcion_breve = self.cleaned_data["descripcion_breve"]
         #contenido.archivo_vista = request.FILES["archivo_vista"].name
         archivo=request.FILES["archivo_vista"].name
         extension=archivo.split('.')[-1]

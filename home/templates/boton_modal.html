@@ -3,12 +3,13 @@
 {% if elemento.imagen %}
 <img loading="lazy" class="img-responsive btn-modal" src="{% static ruta|add:elemento.archivo_vista %}"
   data-imagen="{% static ruta|add:elemento.imagen %}" onclick="showModalImagen(this.dataset.imagen)" />
+  
 {% endif %}
 {% if elemento.texto %}
 <img loading="lazy" class="img-responsive btn-modal" src="{% static ruta|add:elemento.archivo_vista %}"
-  data-texto="{{elemento.texto}}" onclick="showModalTexto(this.dataset.texto)" />
+  data-texto="{{elemento.texto}}" onclick="showModalTextoEditor(this.dataset.texto)" />
 {% endif %}
 {% if elemento.pdf %}
 <img loading="lazy" class="img-responsive btn-modal" src="{% static ruta|add:elemento.archivo_vista %}"
   data-pdf="{% static ruta|add:elemento.pdf %}" onclick="showPdfModal(this.dataset.pdf)" />
-{% endif %}
+{% endif %} 

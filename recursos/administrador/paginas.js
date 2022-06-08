@@ -3,6 +3,9 @@ let bloque_texto = document.getElementById("bloque-texto");
 let bloque_imagen = document.getElementById("bloque-imagen");
 let bloque_pdf = document.getElementById("bloque-pdf");
 
+let bloque_descripcion = document.getElementById("bloque-descripcion");
+
+
 let ocultar_div = (e) => {
   bloque_texto.style.display = "none";
   bloque_imagen.style.display = "none";
@@ -15,3 +18,18 @@ let ocultar_div = (e) => {
 for (let radio of radios) {
   radio.addEventListener("change", ocultar_div);
 }
+$gmx(document).ready(function(){
+  var selection = document.getElementById("pagina_cecyte_id");
+  var tipo=  selection.options[selection.selectedIndex].value;
+  if(tipo==6){
+    bloque_descripcion.style.display = "block";
+  }
+  $("#pagina_cecyte_id").change(function(){
+    bloque_descripcion.style.display = "none";
+    var tipo = $("#pagina_cecyte_id").val();
+    if(tipo==6){
+      bloque_descripcion.style.display = "block";
+    }
+  });
+
+});
