@@ -29,9 +29,14 @@ def GET_RESPONSE(request, context, id=None):
 def POST_RESPONSE(request, id):
     context = {}
     form = UploadImagenForm(request.POST, request.FILES)
+    
+    #form_valido = form.formulario_valido(request)
+    #if form.is_valid():
+        #context["error"] = "Favor de llenar correctamente el formulario"
+        #return GET_RESPONSE(request, context)
 
-
-
+    if form.is_valid():
+        context["success"] = "Guardado correctamente"
     form.guardar_imagen_bd(request, id)
     form.guardar_imagen_disco(request)
 
