@@ -14,16 +14,17 @@ def guardar_archivo(tipo,carpeta, file):
             destination.write(chunk)
 
 class UploadImagenForm(forms.Form):
-    imagenes = forms.FileField(required=False)
+    imagenes = forms.FileField(required=True)
     contenido_pagina_id = forms.IntegerField()
-
+    #def formulario_valido(self, request):
+        #form_valido = True
+        #if self.is_valid() == False:
+            #form_valido = False
+        #return form_valido 
+        
     def guardar_imagen_bd(self, request, id):
         fecha=datetime.datetime.now()
-
-        ##if id is not None:
         contenido = ImagenNoticia()
-        ##else:
-        #contenido2 = ImagenNoticia()
         archivo=request.FILES["archivo_imagen"].name
         extension=archivo.split('.')[-1]
         contenido.imagenes= 'Slider'+fecha.strftime('%d.%m.%Y-%H.%M.%S.')+extension
@@ -31,6 +32,5 @@ class UploadImagenForm(forms.Form):
         contenido.save()
 
     def guardar_imagen_disco(self, request):
-
         pagina_cecyte = PaginaCecyte.objects.get(id=6)
         guardar_archivo('Slider',pagina_cecyte.carpeta, request.FILES["archivo_imagen"])

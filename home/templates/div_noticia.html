@@ -1,18 +1,18 @@
 {% load static %}
 
 <div id="description-noti">
-    <h5>{{elemento.nombre}}</h5>
-    <p>{{elemento.descripcion_breve}}</p>
+    <h5>{{elemento.0.nombre}}</h5>
+    <p>{{elemento.0.descripcion_breve}}</p>
     <br>
     <div class="md-2">
-        {% if elemento.imagen %}
-        <button type="button" class="btn btn-info" data-imagen="{{elemento.imagen}}" onclick="showModalImagen(this.dataset.imagen)" >Leer más</button>
+        {% if elemento.0.imagen %}
+        <button type="button" class="btn btn-info" data-imagen="{{elemento.0.imagen}}" onclick="showModalImagen(this.dataset.imagen)" >Leer más</button>
         {% endif %}
-        {% if elemento.texto %}
-        <button type="button" class="btn btn-info" data-texto="{{elemento.texto}}" onclick="showModalTextoEditor(this.dataset.texto)" >Leer más</button>
+        {% if elemento.0.texto %}
+        <button type="button" class="btn btn-info" data-texto="{{elemento.0.texto}}" onclick="showModalTextoEditor(this.dataset.texto)" >Leer más</button>
         {% endif %} 
-        {% if elemento.pdf %}
-        <button type="button" class="btn btn-info" data-pdf="{{elemento.pdf}}" onclick="showPdfModal(this.dataset.pdf)" >Leer más</button>
+        {% if elemento.0.pdf %}
+        <button type="button" class="btn btn-info" data-pdf="{{elemento.0.pdf}}" onclick="showPdfModal(this.dataset.pdf)" >Leer más</button>
         {% endif %}                
     </div>
 </div>

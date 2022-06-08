@@ -62,9 +62,33 @@
 <h3>Noticias</h3>
 <hr class="red">
 <div class="row">
-  {% for elemento in elementos_noticias %}
+  {% for elemento in datos %}
   <div class="col-md-4">
-    {% include 'boton_modal.html' with ruta=ruta_noticias %}
+    <div id="carousel-banners{{ elemento.0.id }}" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        {% if elemento.1 %}
+        {% for img in elemento.1 %}
+        <div class="item {% if forloop.first %} active {% endif %}" style="width: 100%;height: 15em;">
+          <img loading="lazy" src="{% static ruta_noticias|add:img.imagenes %}" alt="First slide"
+          class="img-responsive btn-modal" style="height: 100%;width: 100%;"/>         
+        </div>
+        {% endfor %}
+        {% else %}
+          <div class="item active" style="width: 100%;height: 15em;">
+          <img loading="lazy" src="{% static ruta_noticias|add:elemento.0.archivo_vista %}" alt="First slide"
+          class="img-responsive btn-modal" style="height: 100%;width: 100%;"/>      
+          </div>          
+        {% endif %}
+      </div> 
+      <a class="left carousel-control" href="#carousel-banners{{ elemento.0.id }}" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-banners{{ elemento.0.id }}" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Siguiente</span>
+      </a>            
+    </div>
     {% include 'div_noticia.html' with ruta=ruta_noticias %}
   </div>
   {% endfor %}
