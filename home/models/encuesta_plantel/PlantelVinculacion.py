@@ -35,3 +35,6 @@ class PlantelVinculacion(models.Model):
     egresados_2017_superior = models.CharField(max_length=150, null=True)
     egresados_2017_laboral = models.CharField(max_length=150, null=True)
     sectores_productos = models.CharField(max_length=150, null=True)
+    responsable_mfd = models.CharField(max_length=100, null=True)
+    correo_responsable = models.CharField(max_length=100, null=True)
+    telefono_responsable = models.CharField(max_length=100, null=True)

@@ -140,6 +140,10 @@
   <label for="latitud">¿Cuáles son los principales sectores, productos y servicios de la región?</label>
   <input type="text" class="form-control" value="{{vinculacion.sectores_productos}}" disabled>
 </div>
+<div class="form-group">
+  <label for="latitud">Nombre completo del Responsable MFD</label>
+  <input type="text" class="form-control" value="{{vinculacion.responsable_mfd}}" disabled>
+</div>
 {% else %}
 <div class="alert alert-warning">No se ha encontrado información del área de vinculación.</div>
 {% endif %}
