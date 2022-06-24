@@ -39,3 +39,17 @@ function showModalCuestionario(texto) {
   //pTexto.innerText = texto;
   $("#modal-cuestionario").modal("toggle");
 }
+//modal video
+function showModalVideo(ruta,poster) {
+  let videoModalBody = document.getElementById("video-modal-body");
+  let elemVideo = document.createElement("video");
+  elemVideo.src = ruta;
+  elemVideo.poster=poster;
+  elemVideo.width=510;
+  elemVideo.height=480; 
+  elemVideo.controls=true;
+  elemVideo.id = "video-modal";
+  videoModalBody.innerHTML ="";
+  videoModalBody.appendChild(elemVideo);
+  $("#modal-video").modal("toggle");
+}

@@ -56,6 +56,9 @@ class UploadFileForm(forms.Form):
         contenido.archivo_vista = 'Cu'+fecha.strftime('%d.%m.%Y-%H.%M.%S.')+extension
         contenido.pagina_cecyte_id = self.cleaned_data["pagina_cecyte_id"]
         contenido.estatus="1"
+        archivo_video=request.FILES["video"].name
+        extension_video=archivo_video.split('.')[-1]
+        contenido.video = 'Video'+fecha.strftime('%d.%m.%Y-%H.%M.%S.')+extension_video
 
         if tipo_bloque == 1:  # texto
             contenido.texto = self.cleaned_data["texto"]
@@ -83,6 +86,7 @@ class UploadFileForm(forms.Form):
 
         pagina_cecyte = PaginaCecyte.objects.get(id=pagina_cecyte_id)
         guardar_archivo('Cu',pagina_cecyte.carpeta, request.FILES["archivo_vista"])
+        guardar_archivo('Video',pagina_cecyte.carpeta, request.FILES["video"])
         if tipo_bloque == 2:  # pdf
             guardar_archivo('Pdf',pagina_cecyte.carpeta, request.FILES["pdf"])
         if tipo_bloque == 3:  # imagen
