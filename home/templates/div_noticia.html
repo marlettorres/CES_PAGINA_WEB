@@ -1,6 +1,5 @@
 {% load static %}
-
-<div id="description-noti">
+ 
     <h5>{{elemento.0.nombre}}</h5>
     <p>{{elemento.0.descripcion_breve}}</p>
     <br>
@@ -15,4 +14,4 @@
         <button type="button" class="btn btn-info" data-pdf="{% static ruta|add:elemento.0.pdf %}" onclick="showPdfModal(this.dataset.pdf)" >Leer más</button>
         {% endif %}                
     </div>
-</div>
+    <br>

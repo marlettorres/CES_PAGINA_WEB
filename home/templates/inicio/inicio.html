@@ -79,21 +79,28 @@
             <img loading="lazy" src="{% static ruta_noticias|add:img.imagenes %}" alt="First slide"
             oclass="img-responsive btn-modal" style="height: 100%;width: 100%;"/>
           {% endif %}                        
-        </div>
+        </div> 
         {% endfor %} 
         {% else %}
           <div class="item active" style="width: 100%;height: 15em;">
           {% if elemento.0.video %}
-            <img loading="lazy" src="{% static ruta_noticias|add:elemento.0.archivo_vista %}" alt="First slide"
-            class="img-responsive btn-modal" style="height: 100%;width: 100%;" 
-            data-video="{% static ruta_noticias|add:elemento.0.video %}"
-            data-poster="{% static ruta_noticias|add:elemento.0.archivo_vista %}" 
-            onclick="showModalVideo(this.dataset.video, this.dataset.poster)"/>
+            {%  if elemento.0.opcion_video == 2 %}
+              <img loading="lazy" src="{% static ruta_noticias|add:elemento.0.archivo_vista %}" alt="First slide"
+              class="img-responsive btn-modal" style="height: 100%;width: 100%;" 
+              data-video="{% static ruta_noticias|add:elemento.0.video %}"
+              data-poster="{% static ruta_noticias|add:elemento.0.archivo_vista %}" 
+              onclick="showModalVideo(this.dataset.video, this.dataset.poster)"/>
+            {% else %}
+              <img loading="lazy" src="{% static ruta_noticias|add:elemento.0.archivo_vista %}" alt="First slide"
+              class="img-responsive btn-modal" style="height: 100%;width: 100%;" 
+              data-video="{{ elemento.0.video }}"
+              onclick="showModalYoutube(this.dataset.video)"/>              
+            {% endif %}  
           {% else %} 
             <img loading="lazy" src="{% static ruta_noticias|add:elemento.0.archivo_vista %}" alt="First slide"
-            class="img-responsive btn-modal" style="height: 100%;width: 100%;"/>     
-            </div>
-          {% endif %}            
+            class="img-responsive btn-modal" style="height: 100%;width: 100%;"/>
+          {% endif %}      
+          </div>           
         {% endif %}
       </div> 
       <a class="left carousel-control" href="#carousel-banners{{ elemento.0.id }}" data-slide="prev">

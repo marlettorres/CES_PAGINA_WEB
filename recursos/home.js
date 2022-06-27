@@ -46,10 +46,26 @@ function showModalVideo(ruta,poster) {
   elemVideo.src = ruta;
   elemVideo.poster=poster;
   elemVideo.width=510;
-  elemVideo.height=480; 
+  elemVideo.height=310; 
   elemVideo.controls=true;
   elemVideo.id = "video-modal";
   videoModalBody.innerHTML ="";
   videoModalBody.appendChild(elemVideo);
   $("#modal-video").modal("toggle");
+}
+
+function showModalYoutube(ruta) {
+  let videoModalBody = document.getElementById("youtube-modal-body");
+  let elemVideo = document.createElement("iframe");
+  elemVideo.src =ruta;
+  elemVideo.width=510;
+  elemVideo.height=315; 
+  elemVideo.frameborder=0;
+  elemVideo.title="YouTube video player";
+  elemVideo.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  elemVideo.allowfullscreen;
+  elemVideo.id = "youtube-modal";
+  videoModalBody.innerHTML ="";
+  videoModalBody.appendChild(elemVideo);
+  $("#modal-youtube").modal("toggle");
 }
