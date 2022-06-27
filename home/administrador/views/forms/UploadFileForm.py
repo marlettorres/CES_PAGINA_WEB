@@ -104,7 +104,7 @@ class UploadFileForm(forms.Form):
         pagina_cecyte = PaginaCecyte.objects.get(id=pagina_cecyte_id)
         guardar_archivo('Cu',pagina_cecyte.carpeta, request.FILES["archivo_vista"])
         tipo_video = self.cleaned_data["opcion_video"]
-        if tipo_video == 2 in request.FILES:
+        if tipo_video == 2:
             guardar_archivo('Video',pagina_cecyte.carpeta, request.FILES["video"])
         #if "video" in request.FILES:
         #    guardar_archivo('Video',pagina_cecyte.carpeta, request.FILES["video"])
