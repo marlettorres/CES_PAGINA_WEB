@@ -45,10 +45,28 @@
     <label class="control-label">Imagen cuadro</label>
     <input type="file" name="archivo_vista" accept="image/gif, image/jpeg, image/png, image/jpg">
   </div>
+  <div class="form-group"  id="opcion-video" style="display: none;">
+    <label class="control-label">Opcion para video</label>
+    <div class="radio">
+      <label>
+        <input type="radio" name="opcion_video" value="1" required>Sin video
+      </label>
+      <label>
+        <input type="radio" name="opcion_video" value="2" required>Subir video
+      </label>
+      <label>
+        <input type="radio" name="opcion_video" value="3" required>Youtube
+      </label>
+    </div>
+  </div>  
   <div class="form-group" id="bloque-video" style="display: none;">
     <label class="control-label">Video:</label> 
     <input type="file" name="video" accept="video/mp4, video/avi">
-  </div> 
+  </div>
+  <div class="form-group" id="bloque-youtube" style="display: none;">
+    <label class="control-label">Youtube:</label> 
+    <input type="text" name="liga" class="form-control" placeholder="Liga del video youtube">
+  </div>   
   <div class="form-group">
     <label class="control-label">Tipo de anuncio</label>
     <div class="radio">

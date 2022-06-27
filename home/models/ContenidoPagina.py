@@ -15,7 +15,8 @@ class ContenidoPagina(models.Model):
     pdf = models.CharField(max_length=200, null=True)
     imagen = models.CharField(max_length=200, null=True)
     estatus = models.BooleanField(default=True)
-    video = models.CharField(max_length=200, null=True)
+    video = models.CharField(max_length=200, null=True) 
+    opcion_video = models.IntegerField(null=True)
     pagina_cecyte = models.ForeignKey(
         PaginaCecyte,
         on_delete=models.CASCADE,

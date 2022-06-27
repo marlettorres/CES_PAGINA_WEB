@@ -13,7 +13,7 @@ def guardar_archivo(tipo,carpeta, file):
     #with open(f"recursos/{carpeta}{file.name}", "wb+") as destination:
     with open(f"recursos/{carpeta}{nombre}", "wb+") as destination:
         for chunk in file.chunks():
-            destination.write(chunk)
+            destination.write(chunk) 
 
 
 class UploadFileForm(forms.Form):
@@ -25,6 +25,8 @@ class UploadFileForm(forms.Form):
     imagen = forms.FileField(required=False)
     pagina_cecyte_id = forms.IntegerField()
     tipo_bloque = forms.IntegerField()
+    video = forms.FileField(max_length=500, required=False)
+    opcion_video=forms.IntegerField(required=False)
 
     def formulario_valido(self, request):
         form_valido = True
@@ -41,6 +43,7 @@ class UploadFileForm(forms.Form):
 
     def guardar_avisos_bd(self, request, id): 
         tipo_bloque = self.cleaned_data["tipo_bloque"]
+        tipo_opcion = self.cleaned_data["opcion_video"]
         fecha=datetime.datetime.now()
 
         if id is not None:
@@ -56,9 +59,23 @@ class UploadFileForm(forms.Form):
         contenido.archivo_vista = 'Cu'+fecha.strftime('%d.%m.%Y-%H.%M.%S.')+extension
         contenido.pagina_cecyte_id = self.cleaned_data["pagina_cecyte_id"]
         contenido.estatus="1"
-        archivo_video=request.FILES["video"].name
-        extension_video=archivo_video.split('.')[-1]
-        contenido.video = 'Video'+fecha.strftime('%d.%m.%Y-%H.%M.%S.')+extension_video
+        if tipo_opcion == 1:
+            contenido.video=''
+            contenido.opcion_video=1
+        elif tipo_opcion ==2:
+            archivo_video=request.FILES["video"].name   
+            extension_video=archivo_video.split('.')[-1]
+            contenido.video = 'Video'+fecha.strftime('%d.%m.%Y-%H.%M.%S.')+extension_video
+            contenido.opcion_video=2
+        elif tipo_opcion ==3:
+            contenido.video=request.POST["liga"]
+            contenido.opcion_video=3 
+        #if 'video' not in request.FILES:
+        #    contenido.video=''
+        #else: 
+        #    archivo_video=request.FILES["video"].name   
+        #    extension_video=archivo_video.split('.')[-1]
+        #    contenido.video = 'Video'+fecha.strftime('%d.%m.%Y-%H.%M.%S.')+extension_video
 
         if tipo_bloque == 1:  # texto
             contenido.texto = self.cleaned_data["texto"]
@@ -86,7 +103,11 @@ class UploadFileForm(forms.Form):
 
         pagina_cecyte = PaginaCecyte.objects.get(id=pagina_cecyte_id)
         guardar_archivo('Cu',pagina_cecyte.carpeta, request.FILES["archivo_vista"])
-        guardar_archivo('Video',pagina_cecyte.carpeta, request.FILES["video"])
+        tipo_video = self.cleaned_data["opcion_video"]
+        if tipo_video == 2 in request.FILES:
+            guardar_archivo('Video',pagina_cecyte.carpeta, request.FILES["video"])
+        #if "video" in request.FILES:
+        #    guardar_archivo('Video',pagina_cecyte.carpeta, request.FILES["video"])
         if tipo_bloque == 2:  # pdf
             guardar_archivo('Pdf',pagina_cecyte.carpeta, request.FILES["pdf"])
         if tipo_bloque == 3:  # imagen
