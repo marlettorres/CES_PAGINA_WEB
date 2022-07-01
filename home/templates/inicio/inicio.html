@@ -87,7 +87,7 @@
             {%  if elemento.0.opcion_video == 2 %}
               <img loading="lazy" src="{% static ruta_noticias|add:elemento.0.archivo_vista %}" alt="First slide"
               class="img-responsive btn-modal" style="height: 100%;width: 100%;" 
-              data-video="{% static ruta_noticias|add:elemento.0.video %}"
+              data-video="/recursos/{{ruta_noticias}}{{elemento.0.video}}"
               data-poster="{% static ruta_noticias|add:elemento.0.archivo_vista %}" 
               onclick="showModalVideo(this.dataset.video, this.dataset.poster)"/>
             {% else %}
