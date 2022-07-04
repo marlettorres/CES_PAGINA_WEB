@@ -100,7 +100,8 @@ USE_TZ = True
 
 
 STATIC_URL = "/recursos/"
-
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 if DEBUG:
     STATICFILES_DIRS = (os.path.join("recursos"),)
 else:
