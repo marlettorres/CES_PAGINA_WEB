@@ -8,8 +8,8 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRETKEY")
-DEBUG = os.getenv("DESARROLLO") == "1"
-
+#DEBUG = os.getenv("DESARROLLO") == "1"
+DEBUG=True
 ALLOWED_HOSTS = [os.getenv("HOST")]
 
 INSTALLED_APPS = [
