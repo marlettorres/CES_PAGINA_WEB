@@ -10,11 +10,20 @@ def guardar_archivo(tipo,carpeta, file):
     archivo=file.name
     extension=archivo.split('.')[-1]
     nombre=tipo+fecha.strftime('%d.%m.%Y-%H.%M.%S.')+extension
-    #with open(f"recursos/{carpeta}{file.name}", "wb+") as destination:
-    with open(f"recursos/{carpeta}{nombre}", "wb+") as destination:
+    #with open(f"recursos/{carpeta}{file.name}", "wb+") as destination: 
+    with open(f"recursos/{carpeta}{nombre}", "wb+") as destination: 
+        for chunk in file.chunks():
+            destination.write(chunk)
+
+def guardar_video(tipo, file):   
+    fecha=datetime.datetime.now()
+    archivo=file.name
+    extension=archivo.split('.')[-1]
+    nombre=tipo+fecha.strftime('%d.%m.%Y-%H.%M.%S.')+extension
+    #with open(f"recursos/{carpeta}{file.name}", "wb+") as destination: 
+    with open(f"media/{nombre}", "wb+") as destination: 
         for chunk in file.chunks():
             destination.write(chunk) 
-
 
 class UploadFileForm(forms.Form):
     nombre = forms.CharField(max_length=50)
@@ -105,7 +114,7 @@ class UploadFileForm(forms.Form):
         guardar_archivo('Cu',pagina_cecyte.carpeta, request.FILES["archivo_vista"])
         tipo_video = self.cleaned_data["opcion_video"]
         if tipo_video == 2:
-            guardar_archivo('Video',pagina_cecyte.carpeta, request.FILES["video"])
+            guardar_video('Video', request.FILES["video"])
         #if "video" in request.FILES:
         #    guardar_archivo('Video',pagina_cecyte.carpeta, request.FILES["video"])
         if tipo_bloque == 2:  # pdf
