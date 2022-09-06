@@ -9,7 +9,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRETKEY")
 #DEBUG = os.getenv("DESARROLLO") == "1"
-DEBUG=True
+DEBUG=False
+
 ALLOWED_HOSTS = [os.getenv("HOST")]
 
 INSTALLED_APPS = [
@@ -31,6 +32,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "CECyTEs.smiddleware.Simplemiddleware"
 ]
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
