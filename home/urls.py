@@ -8,7 +8,8 @@ from .quienessomos import urlpatterns as quienessomos_urls
 from .emsad import urlpatterns as emsad_urls
 from .inicio import urlpatterns as inicio_urls
 from .cecyte import urlpatterns as cecyte_urls
-
+from django.conf.urls import handler403
+from .views import error_403
 
 appname = "home"
 
@@ -20,3 +21,6 @@ urlpatterns += quienessomos_urls
 urlpatterns += emsad_urls
 urlpatterns += cecyte_urls
 urlpatterns += inicio_urls
+
+handler403 = error_403
+
