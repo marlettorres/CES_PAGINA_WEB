@@ -5,7 +5,9 @@ from home.models import ContenidoPagina, PaginaCecyte, ImagenNoticia
 
 def inicio_view(request):
     context = get_contenido_inicio()
-    return render(request, "inicio/inicio.html", context)
+    response = render(request, "inicio/inicio.html", context)
+    response['Server'] = 'dev'
+    return response
 
 
 def get_contenido_inicio():
