@@ -8,8 +8,9 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRETKEY")
-#DEBUG = os.getenv("DESARROLLO") == "1"
-DEBUG=False
+
+DEBUG = os.getenv("DESARROLLO") == "1"
+DEBUG = False
 
 ALLOWED_HOSTS = [os.getenv("HOST")]
 
@@ -31,8 +32,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    "CECyTEs.smiddleware.Simplemiddleware"
+    "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
