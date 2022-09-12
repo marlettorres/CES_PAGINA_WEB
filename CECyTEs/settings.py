@@ -32,8 +32,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    "CECyTEs.smiddleware.Simplemiddleware"
+    "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
