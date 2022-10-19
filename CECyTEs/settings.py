@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRETKEY")
 
-DEBUG = os.getenv("DESARROLLO") == "1"
+#DEBUG = os.getenv("DESARROLLO") == "1"
 DEBUG = False
 
 ALLOWED_HOSTS = [os.getenv("HOST")]
@@ -99,7 +99,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
 
 STATIC_URL = "/recursos/"
 MEDIA_URL = "/media/"
