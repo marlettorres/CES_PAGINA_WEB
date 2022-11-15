@@ -1,16 +1,29 @@
 {%extends 'index.html'%} {% block contenido %}
+{% load static %}
 <h2 class="text-center">Colegios de Estudios Científicos y Tecnológicos en los Estados</h2>
 
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#historia">Historia</a></li>
   <li><a data-toggle="tab" href="#encuentra-cecyte">Encuentra tu CECyTE</a></li>
-  <li><a data-toggle="tab" href="#ubica-cecyte">Ubica tu CECyTE</a></li>
+  <li><a data-toggle="tab" href="#ubica-cecyte">Ubica tu CECyTE</a></li> 
   <li><a data-toggle="tab" href="#detalle-cecyte">Detalle de tu CECYTE</a></li>
 </ul>
 <div class="tab-content">
   <div class="tab-pane active" id="historia">{% include 'cecyte/historia.html' %}</div>
   <div class="tab-pane" id="encuentra-cecyte">{% include 'cecyte/encuentra_cecyte.html' %}</div>
-  <div class="tab-pane" id="ubica-cecyte">{% include 'cecyte/ubica_cecyte.html' %}</div>
+  <div class="tab-pane" id="ubica-cecyte">
+    <div class="row">
+      <div class="col-md-8">
+        {% include 'cecyte/ubica_cecyte.html' %}
+      </div>
+      <div class="col-md-4">
+        <h4>Simbología</h4><br>
+        <img loading="lazy" src="{% static 'inicio/iconCecyte.png' %}" style="height: 30px; width:30px"/><span> Planteles CECyTEs</span><br><br>
+        <img loading="lazy" src="{% static 'inicio/iconEmsad.png' %}" style="height: 30px; width:40px"/><span> Planteles EMSAD</span><br><br>
+        <img loading="lazy" src="{% static 'inicio/iconDual.jpg' %}" style="height: 30px; width:35px" /><span> Empresas DUAL</span><br>
+      </div>
+    </div>
+  </div> 
   <div class="tab-pane" id="detalle-cecyte">{% include 'cecyte/detalle/detalle_cecyte.html' %}</div>
 </div>
 
