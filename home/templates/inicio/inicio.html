@@ -27,38 +27,6 @@
     <span class="sr-only">Siguiente</span>
   </a>
 </div>
-
-
-<h3>Anuncios</h3>
-<hr class="red">
-
-<div class="row">
-  {% for elemento in elementos_anuncios %}
-  <div class="col-md-4">
-    {% include 'boton_modal.html' with ruta=ruta_anuncios %}
-  </div>
-  {% endfor %}
-</div>
-
-
-<h3>Sitios de la Coordinación</h3>
-<hr class="red">
-<div class="row">
-  <div class="col-md-4">
-    <a target="_blank" href="https://dgeti.cecyte.edu.mx/"><img loading="lazy" class="img-responsive btn-modal"
-        src="{% static 'inicio/covid.jpg' %}" title="Planteles COVID" /></a>
-  </div>
-  <div class="col-md-4">
-    <a target="_blank" href="https://certificados.cecyte.edu.mx/"><img loading="lazy" class="img-responsive btn-modal"
-        src="{% static 'inicio/sisec.jpg' %}" title="SISEC" /></a>
-  </div>
-  <div class="col-md-4">
-    <a target="_blank" href="https://cuestionario.cecyte.edu.mx/CuestionarioEscuela"><img loading="lazy" class="img-responsive btn-modal"
-        src="{% static 'inicio/cedula.jpg' %}" title="Actualizar cedula plantel" /></a>
-  </div>
-</div>
-
-
 <h3>Noticias</h3>
 <hr class="red">
 <div class="row">
@@ -114,6 +82,38 @@
   </div>
   {% endfor %}
 </div>
+
+<h3>¿Quiénes somos?</h3>
+<hr class="red">
+
+<div class="row">
+  {% for elemento in elementos_anuncios %}
+  <div class="col-md-4">
+    {% include 'boton_modal.html' with ruta=ruta_anuncios %}
+  </div>
+  {% endfor %}
+</div>
+
+
+<h3>Sitios de la Coordinación</h3>
+<hr class="red">
+<div class="row">
+  <div class="col-md-4">
+    <a target="_blank" href="https://dgeti.cecyte.edu.mx/"><img loading="lazy" class="img-responsive btn-modal"
+        src="{% static 'inicio/covid.jpg' %}" title="Planteles COVID" /></a>
+  </div>
+  <div class="col-md-4">
+    <a target="_blank" href="https://certificados.cecyte.edu.mx/"><img loading="lazy" class="img-responsive btn-modal"
+        src="{% static 'inicio/sisec.jpg' %}" title="SISEC" /></a>
+  </div>
+  <div class="col-md-4">
+    <a target="_blank" href="https://cuestionario.cecyte.edu.mx/CuestionarioEscuela"><img loading="lazy" class="img-responsive btn-modal"
+        src="{% static 'inicio/cedula.jpg' %}" title="Actualizar cedula plantel" /></a>
+  </div>
+</div>
+
+
+
 
 <h3>Síguenos</h3>
 <hr class="red">

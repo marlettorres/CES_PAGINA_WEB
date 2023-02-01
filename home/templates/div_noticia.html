@@ -5,13 +5,13 @@
     <br>
     <div class="md-2">
         {% if elemento.0.imagen %}
-        <button type="button" class="btn btn-info" data-imagen="{% static ruta|add:elemento.0.imagen %}" onclick="showModalImagen(this.dataset.imagen)" >Leer más</button>
+        <button type="button" class="btn-default" data-imagen="{% static ruta|add:elemento.0.imagen %}" onclick="showModalImagen(this.dataset.imagen)" >Continuar Leyendo</button>
         {% endif %}
         {% if elemento.0.texto %}
-        <button type="button" class="btn btn-info" data-texto="{{elemento.0.texto}}" onclick="showModalTextoEditor(this.dataset.texto)" >Leer más</button>
+        <button type="button" class="btn-default" data-texto="{{elemento.0.texto}}" onclick="showModalTextoEditor(this.dataset.texto)" >Continuar Leyendo</button>
         {% endif %} 
         {% if elemento.0.pdf %}
-        <button type="button" class="btn btn-info" data-pdf="{% static ruta|add:elemento.0.pdf %}" onclick="showPdfModal(this.dataset.pdf)" >Leer más</button>
+        <button type="button" class="btn-default" data-pdf="{% static ruta|add:elemento.0.pdf %}" onclick="showPdfModal(this.dataset.pdf)" >Continuar Leyendo</button>
         {% endif %}                
     </div>
     <br>
