@@ -85,7 +85,20 @@
 
 <h3>¿Quiénes somos?</h3>
 <hr class="red">
-
+<div class="row">
+  <div class="col-md-4">
+    <a target="_blank" href=""><img loading="lazy" class="img-responsive btn-modal"
+        src="{% static 'inicio/coordinador.jpg' %}" title="Coordinador" /></a>
+  </div>
+  <div class="col-md-4">
+    <a target="_blank" href="https://cecyte.edu.mx/cecytes"><img loading="lazy" class="img-responsive btn-modal"
+        src="{% static 'inicio/ubicacecyte.jpg' %}" title="Ubica tu CECyTE" /></a>
+  </div>
+  <div class="col-md-4">
+    <a target="_blank" href="https://cecyte.edu.mx/cecytes"><img loading="lazy" class="img-responsive btn-modal"
+        src="{% static 'inicio/cecyterepublica.jpg' %}" title="Encuentra tu CECyTE" /></a>
+  </div>
+</div>
 <div class="row">
   {% for elemento in elementos_anuncios %}
   <div class="col-md-4">
