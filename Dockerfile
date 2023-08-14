@@ -1,11 +1,11 @@
-FROM python:3
+FROM python:3.9
 
 ENV PYTHIONUNBUFFERED=1
 RUN mkdir /app
 
 WORKDIR /app
 
-RUN pip install --upgrade pip
+#RUN pip install --upgrade pip
 
 COPY requirements.txt /app
 

@@ -12,7 +12,8 @@ SECRET_KEY = os.getenv("SECRETKEY")
 #DEBUG = os.getenv("DESARROLLO") == "1"
 DEBUG = False
 
-ALLOWED_HOSTS = [os.getenv("HOST")]
+ALLOWED_HOSTS = ['cecyte.edu.mx','cecyte-web']
+CSRF_TRUSTED_ORIGINS = ['https://cecyte.edu.mx']
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -58,12 +59,12 @@ WSGI_APPLICATION = "CECyTEs.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "cecyte",
-        "USER": "root",
-        "PASSWORD": "c3c1t3.2023",
-        "HOST": "127.0.0.1",
-        "PORT": "3306",
+        "ENGINE": 'django.db.backends.mysql',
+        "NAME": 'cecyte',
+        "USER": 'root',
+        "PASSWORD": 'c3c1t3.2023',
+        "HOST": '172.17.0.1',
+        "PORT": 3307,
     }
 }
 # Password validation
@@ -106,4 +107,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 if DEBUG:
     STATICFILES_DIRS = (os.path.join("recursos"),)
 else:
-    STATIC_ROOT = os.path.join("recursos")
+    STATIC_ROOT = os.path.join(BASE_DIR,"recursos")
